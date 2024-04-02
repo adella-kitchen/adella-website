@@ -4,7 +4,7 @@
     <div class="h-full px-3 py-6 overflow-y-auto bg-white border dark:bg-gray-800">
         <div class="w-full flex flex-col justify-center text-center items-center mb-10 gap-2">
             <div class="w-[50px] h-[50px] bg-red-900"></div>
-            <p class="font-semibold text-[20px]">Adella Kitchen oikajk</p>
+            <p class="font-semibold text-[20px]">Adella Kitchen</p>
         </div>
         <ul class="space-y-2 font-medium">
             <li>
