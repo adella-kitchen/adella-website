@@ -4,11 +4,11 @@
     <div class="h-full px-3 py-6 overflow-y-auto bg-white border dark:bg-gray-800">
         <div class="w-full flex flex-col justify-center text-center items-center mb-10 gap-2">
             <div class="w-[50px] h-[50px] bg-red-900"></div>
-            <p class="font-semibold text-[20px]">Adella Kitchen</p>
+            <p class="font-semibold text-[20px]">Adella Kitchen oikajk</p>
         </div>
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="#"
+                <a href="{{ url('/admin/dashboard') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
@@ -38,19 +38,19 @@
                 </button>
                 <ul id="dropdown-example" class="hidden py-2 space-y-2">
                     <li>
-                        <a href="#"
+                        <a href="{{ url('/admin/pesanan') }}"
                             class="flex items-center w-full p-2 text-gray-500 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pesanan
                             Masuk</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ url('/admin/pesanan') }}"
                             class="flex items-center w-full p-2 text-gray-500 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pesanan
                             Selesai</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#"
+                <a href="{{ url('/admin/manajemen-bahan') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a href="{{ url('/admin/manajemen-menu') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
@@ -77,7 +77,7 @@
             </li>
 
             <li>
-                <a href="#"
+                <a href="{{ url('/admin/karyawan') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
