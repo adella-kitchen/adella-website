@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Varian extends Model
+class Transaction extends Model
 {
     use HasFactory;
-    protected $guarded = ['id_varian'];
-    protected $primaryKey = 'id_varian';
-    protected $table = 'varian';
+    protected $guarded = ['id_transaction'];
+    protected $primaryKey = 'id_transaction';
+    protected $table = 'transaction';
     public $timestamps = false;
 }
