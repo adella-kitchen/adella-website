@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transaction', function (Blueprint $table) {
             $table->id('id_transaction');
-            $table->integer('id_order');
+            $table->unsignedBigInteger('id_order');
             $table->timestamp('transaction_date');
             $table->string('payment_method');
             $table->integer('grand_total');
