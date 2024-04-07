@@ -1,7 +1,7 @@
 <section class=" w-full h-[100dvh] flex">
-    <div class="w-[65%] h-full py-[80px] px-[20px]">
+    <div class="left-side w-[65%] h-full py-[80px] px-[20px] overflow-y-auto">
         <div id="kumpulan-card-menu" class="w-full h-full flex flex-wrap justify-center flex-start gap-4">
-            @for ($i = 0; $i < 10; $i++)
+            @for ($i = 0; $i < 17; $i++)
                 <div class="card max-w-[23%] border bg-white">
                     <img src="/img/manajemen_menu/menu1.png" alt="">
                     <div class="py-4 px-4 text-center flex flex-col gap-1">
@@ -14,7 +14,7 @@
         </div>
 
     </div>
-    <div class="w-[35%] h-full bg-white border py-[80px] px-[10px]">
+    <div class="right-side w-[35%] h-full bg-white border py-[80px] px-[10px]">
         <div class="w-full border-b pb-4">
             <button
                 class="border-2 border-red px-8 py-3 rounded-md text-red font-medium text-[14px] hover:bg-red hover:text-white">Tambahkan
