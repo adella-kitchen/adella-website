@@ -8,3 +8,15 @@
 body{
     @apply font-poppins
 }
+
+#menu-table tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+#menu-table tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+#menu-table tr:nth-child(odd) {
+    background-color: #EDEEF0;
+}
