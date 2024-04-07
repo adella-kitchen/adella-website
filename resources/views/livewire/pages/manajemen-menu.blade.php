@@ -1,4 +1,5 @@
-<section class=" w-full h-[100dvh] flex">
+<section id="manajemen-menu" class=" w-full h-[100dvh] flex">
+    <div></div>
     <div class="left-side w-[65%] h-full py-[80px] px-[20px] overflow-y-auto">
         <div id="kumpulan-card-menu" class="w-full h-full flex flex-wrap justify-center flex-start gap-4">
             @for ($i = 0; $i < 17; $i++)

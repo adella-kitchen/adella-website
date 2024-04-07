@@ -14,7 +14,7 @@
     </div>
     <div class="bg-gray-50 w-full relative">
         <header class="w-full z-[9999] absolute">
-            @include('livewire.component.navbar')
+            @include('livewire.component.navbar', ['title' => $title])
         </header>
         {{ $slot }}
     </div>
