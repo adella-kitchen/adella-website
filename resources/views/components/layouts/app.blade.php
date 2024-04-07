@@ -10,10 +10,10 @@
 
 <body class="grid grid-cols-[300px,1fr]">
     <div class="w-[300px]">
-        @include('livewire.component.sidebar')
+        @include('livewire.component.sidebar', ['title' => $title])
     </div>
     <div class="bg-gray-50 w-full relative">
-        <header class="w-full z-[9999] absolute">
+        <header class="w-full absolute">
             @include('livewire.component.navbar', ['title' => $title])
         </header>
         {{ $slot }}
