@@ -40,8 +40,14 @@
                         <p class="text-black font-[400]"><a href="/get-register">Sudah punya akun?</a></p>
                         <p class="text-blue1 font-[500]">Lupa password?</p>
                     </div>
+                    <div id="other-step">
+                        <hr>
+                        <p class="dash-line">atau cara lain</p>
+                        <hr>
+                    </div>
+                    <button class="py-2 px-4 flex border border-black1">Google</button>
                     <button type="submit"
-                        class="bg-blue1 w-[150px] px-4 py-2 font-semibold text-white mx-auto">LOGIN</button>
+                        class="bg-red w-[150px] px-4 py-2 font-semibold text-white mx-auto">LOGIN</button>
 
                 </form>
             </div>
