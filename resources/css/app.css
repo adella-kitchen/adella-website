@@ -9,6 +9,7 @@ body{
     @apply font-poppins
 }
 
+
 div#other-step {
     display: flex;
     align-items: center; 
@@ -21,4 +22,16 @@ hr {
   
 .dash-line {
     margin: 0; 
+
+#menu-table tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+#menu-table tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+#menu-table tr:nth-child(odd) {
+    background-color: #EDEEF0;
+
 }
