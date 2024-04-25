@@ -8,3 +8,17 @@
 body{
     @apply font-poppins
 }
+
+div#other-step {
+    display: flex;
+    align-items: center; 
+}
+  
+hr {
+    flex-grow: 1;
+    margin: 0 10px; 
+}
+  
+.dash-line {
+    margin: 0; 
+}

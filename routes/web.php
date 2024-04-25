@@ -9,7 +9,7 @@ use App\Livewire\Pages\ManajemenMenu;
 use App\Livewire\Pages\Pesanan;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/admin/dashboard');
+Route::redirect('/', '/login');
 Route::get('/admin/dashboard', Dashboard::class);
 Route::get('/admin/manajemen-bahan', ManajemenBahan::class);
 Route::get('/admin/manajemen-menu', ManajemenMenu::class);
