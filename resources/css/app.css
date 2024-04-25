@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
     @apply font-poppins;
 }
@@ -28,3 +29,30 @@ body {
     padding-bottom: 30px;
     padding-left: 10px;
 }
+
+div#other-step {
+    display: flex;
+    align-items: center; 
+}
+  
+hr {
+    flex-grow: 1;
+    margin: 0 10px; 
+}
+  
+.dash-line {
+    margin: 0; 
+
+#menu-table tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+#menu-table tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+#menu-table tr:nth-child(odd) {
+    background-color: #EDEEF0;
+
+}
+

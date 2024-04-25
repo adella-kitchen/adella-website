@@ -8,6 +8,10 @@ export default {
     ],
     theme: {
         extend: {
+            colors:{
+                red: '#BE3144',
+                red2: "#F1DADD"
+            },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
             }

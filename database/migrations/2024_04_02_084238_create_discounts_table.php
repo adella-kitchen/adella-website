@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('discount', function (Blueprint $table) {
             $table->id('id_discount');
-            $table->integer('id_menu');
+            $table->unsignedBigInteger('id_menu');
             $table->integer('discount_total');
             $table->date('deadline');
+
+            $table->foreign('id_menu')->references('id_menu')->on('menu');
         });
     }
 
