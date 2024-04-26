@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Register</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -14,11 +14,19 @@
         <div class="w-1/2 h-[100vh] bg-red rounded-r-[50px] hidden lg:flex"></div>
         <div class="w-full lg:w-1/2 h-[100vh] py-[50px] flex justify-center items-center">
             <div class="w-full flex justify-center flex-col items-center">
-                <h1 class="text-center font-bold text-[28px] text-navy">LOGIN PAGE</h1>
+                <h1 class="text-center font-bold text-[28px] text-navy">REGISTER PAGE</h1>
                 <p class="w-[450px] text-center font-light mb-[30px]">Masukan email dan password dengan benar</p>
-                <form action="/authenticate" method="POST"
+                <form action="/add-user" method="POST"
                     class="flex flex-col justify-center w-full px-8 sm:px-14 sm:max-w-[650px] md:px-16">
                     @csrf
+                    <span class="flex flex-col gap-2 mb-5">
+                        <label for="name" class="font-semibold text-[18px]">Nama Pengguna</label>
+                        <input type="text" name="name" id="name" class="border border-grey4 w-full px-5 py-4"
+                            placeholder="Masukan nama Anda!">
+                        @error('email')
+                            <p class="text-red">{{ $message }}</p>
+                        @enderror
+                    </span>
                     <span class="flex flex-col gap-2 mb-5">
                         <label for="email" class="font-semibold text-[18px]">Email</label>
                         <input type="text" name="email" id="email" class="border border-grey4 w-full px-5 py-4"
@@ -27,19 +35,24 @@
                             <p class="text-red">{{ $message }}</p>
                         @enderror
                     </span>
-                    <span class="flex flex-col gap-2">
+                    <span class="flex flex-col gap-2 mb-5">
                         <label for="password" class="font-semibold text-[18px]">Password</label>
-                        <input type="password" name="password" id="password"
+                        <input type="password" name="password" id="pasword"
                             class="border border-grey4 w-full px-5 py-4" placeholder="Masukan password Anda!">
                         @error('password')
                             <p class="text-red">{{ $message }}</p>
                         @enderror
                     </span>
-                    <div class="w-full py-[20px] flex justify-between text-center">
-                        <p class="text-grey1 font-[400]"><a href="/register">Sudah punya akun?</a></p>
-                        <p class="text-blue1 font-[500] text-blue-500">Lupa password?</p>
-                    </div>
-                    <div id="other-step" class="my-8">
+                    <span class="flex flex-col gap-2">
+                        <label for="konfirmasi_password" class="font-semibold text-[18px]">Konfirmasi Password</label>
+                        <input type="password" name="konfirmasi_password" id="konfirmasi_password"
+                            class="border border-grey4 w-full px-5 py-4"
+                            placeholder="Masukan konfirmasi password Anda!">
+                        @error('password')
+                            <p class="text-red">{{ $message }}</p>
+                        @enderror
+                    </span>
+                    <div id="other-step" class="my-6">
                         <hr>
                         <p class="dash-line text-grey3 font-light">atau cara lain</p>
                         <hr>
@@ -63,7 +76,7 @@
                         </svg>Google
                         Akun</button>
                     <button type="submit"
-                        class="bg-red mt-8 flex px-20 py-2 font-semibold text-white mx-auto">LOGIN</button>
+                        class="bg-red mt-8 flex px-20 py-2 font-semibold text-white mx-auto">REGISTER</button>
 
                 </form>
             </div>

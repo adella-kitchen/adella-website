@@ -17,11 +17,12 @@ div#other-step {
   
 hr {
     flex-grow: 1;
-    margin: 0 10px; 
+    margin: 0 0; 
 }
-  
+    
 .dash-line {
     margin: 0; 
+}
 
 #menu-table tr:nth-child(even) {
     background-color: #FFFFFF;
