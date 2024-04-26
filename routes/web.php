@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Middleware\CheckAdminRole;
 use App\Livewire\Pages\Dashboard;
 use App\Livewire\Pages\Karyawan;
 use App\Livewire\Pages\Login;
@@ -9,10 +10,22 @@ use App\Livewire\Pages\ManajemenMenu;
 use App\Livewire\Pages\Pesanan;
 use Illuminate\Support\Facades\Route;
 
+// ------ login route ------
 Route::redirect('/', '/login');
-Route::get('/admin/dashboard', Dashboard::class);
-Route::get('/admin/manajemen-bahan', ManajemenBahan::class);
-Route::get('/admin/manajemen-menu', ManajemenMenu::class);
-Route::get('/admin/karyawan', Karyawan::class);
-Route::get('/admin/pesanan', Pesanan::class);
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/authenticate', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);
+
+// ------ register route ------
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/add-user', [LoginController::class, 'addUser']);
+
+Route::middleware('auth')->group(function () {
+    Route::middleware(CheckAdminRole::class)->prefix('admin')->group(function () {
+        Route::get('/dashboard', Dashboard::class);
+        Route::get('/manajemen-bahan', ManajemenBahan::class);
+        Route::get('/manajemen-menu', ManajemenMenu::class);
+        Route::get('/karyawan', Karyawan::class);
+        Route::get('/pesanan', Pesanan::class);
+    });
+});
