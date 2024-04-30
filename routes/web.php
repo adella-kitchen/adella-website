@@ -10,6 +10,7 @@ use App\Livewire\Pages\ManajemenMenu;
 use App\Livewire\Pages\Pesanan;
 use Illuminate\Support\Facades\Route;
 
+
 // ------ login route ------
 Route::redirect('/', '/login');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
