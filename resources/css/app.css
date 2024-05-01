@@ -28,6 +28,9 @@ body {
 .dt-search {
     padding-bottom: 30px;
     padding-left: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 div#other-step {
@@ -42,6 +45,7 @@ hr {
   
 .dash-line {
     margin: 0; 
+}
 
 #menu-table tr:nth-child(even) {
     background-color: #FFFFFF;
