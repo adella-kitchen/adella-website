@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8233a570475c616eb13cde76c116173",
+    "content-hash": "fd2995ff3a3fe33a5b3bd7f382d1fee2",
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
@@ -354,6 +354,78 @@
                 }
             ],
             "time": "2024-02-28T15:02:13+00:00"
+        },
+        {
+            "name": "codeat3/blade-majestic-icons",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeat3/blade-majesticons.git",
+                "reference": "cefcb47ccc775a56e68851084602b14da4ad7111"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeat3/blade-majesticons/zipball/cefcb47ccc775a56e68851084602b14da4ad7111",
+                "reference": "cefcb47ccc775a56e68851084602b14da4ad7111",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.1",
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "codeat3/blade-icon-generation-helpers": "^0.8",
+                "codeat3/phpcs-styles": "^1.0",
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^9.0|^10.5|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Codeat3\\BladeMajesticIcons\\BladeMajesticIconsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codeat3\\BladeMajesticIcons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Swapnil Sarwe",
+                    "homepage": "https://swapnilsarwe.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "homepage": "https://driesvints.com"
+                }
+            ],
+            "description": "A package to easily make use of Majestic Icons in your Laravel Blade views.",
+            "homepage": "https://github.com/codeat3/blade-majestic-icons",
+            "keywords": [
+                "blade",
+                "icons",
+                "laravel",
+                "majestic"
+            ],
+            "support": {
+                "issues": "https://github.com/codeat3/blade-majesticons/issues",
+                "source": "https://github.com/codeat3/blade-majesticons/tree/2.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/swapnilsarwe",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-02-29T17:17:19+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -2117,7 +2189,6 @@
         },
         {
             "name": "livewire/livewire",
-
             "version": "v3.4.10",
             "source": {
                 "type": "git",
@@ -2767,6 +2838,76 @@
                 }
             ],
             "time": "2023-11-12T21:59:55+00:00"
+        },
+        {
+            "name": "postare/blade-mdi",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/postare/blade-mdi.git",
+                "reference": "3988609c871e97bb8de8938791d724abfcca34db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/postare/blade-mdi/zipball/3988609c871e97bb8de8938791d724abfcca34db",
+                "reference": "3988609c871e97bb8de8938791d724abfcca34db",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.1",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/database": "^7.0",
+                "orchestra/testbench": "^7.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Postare\\BladeMdi\\BladeMdiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Postare\\BladeMdi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "inerba",
+                    "homepage": "https://github.com/inerba",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Material Design Icons for Laravel Blade views.",
+            "homepage": "https://github.com/renoki-co/blade-mdi",
+            "keywords": [
+                "blade",
+                "design",
+                "icons",
+                "kit",
+                "laravel",
+                "material",
+                "mdi",
+                "php",
+                "ui"
+            ],
+            "support": {
+                "source": "https://github.com/postare/blade-mdi/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/renoki-co",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-01-30T09:18:47+00:00"
         },
         {
             "name": "psr/clock",
@@ -8498,5 +8639,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
