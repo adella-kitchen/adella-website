@@ -8,14 +8,16 @@ use App\Livewire\Pages\Dashboard;
 use App\Livewire\Pages\Karyawan;
 use App\Livewire\Pages\Login;
 use App\Livewire\Pages\ManajemenBahan;
+use App\Livewire\Pages\ManajemenKontenpromo;
 use App\Livewire\Pages\ManajemenMenu;
 use App\Livewire\Pages\Pesanan;
 use Illuminate\Support\Facades\Route;
 
 
+
 // ------ login route ------
 Route::redirect('/', '/login');
-=======
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
@@ -31,12 +33,18 @@ Route::middleware('auth')->group(function () {
         Route::get('/manajemen-menu', ManajemenMenu::class);
         Route::get('/pesanan', Pesanan::class);
       
+        // ---- route manajemen konten ----
+        Route::get('/manajemen-konten', ManajemenKontenpromo::class);
+      
         // ---- route karyawan ----
-        Route::get('/karyawan', Karyawan::class);
-        Route::post('/admin/karyawan/add-karyawan', [KaryawanController::class, 'addKaryawan'])->name('addKaryawan');
-        Route::get('/admin/karyawan/edit-karyawan/{id}', [KaryawanController::class, 'editKaryawan']);
-        Route::delete('/admin/karyawan/delete-karyawan/{id}', [KaryawanController::class, 'deleteData'])->name('deleteData');
-        Route::post('/admin/karyawan/update-karyawan/{id}', [KaryawanController::class, 'updateKaryawan'])->name('updateKaryawan');
+        Route::prefix('karyawan')->group(function () {
+            Route::get('/', Karyawan::class);
+            Route::post('/add-karyawan', [KaryawanController::class, 'addKaryawan'])->name('addKaryawan');
+            Route::get('/karyawan/edit-karyawan/{id}', [KaryawanController::class, 'editKaryawan']);
+            Route::delete('/delete-karyawan/{id}', [KaryawanController::class, 'deleteData'])->name('deleteData');
+            Route::post('/update-karyawan/{id}', [KaryawanController::class, 'updateKaryawan'])->name('updateKaryawan');
+        });
     });
 });
+
 

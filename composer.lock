@@ -2117,6 +2117,7 @@
         },
         {
             "name": "livewire/livewire",
+
             "version": "v3.4.10",
             "source": {
                 "type": "git",
@@ -2189,7 +2190,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-02T14:22:50+00:00"
+            "time": "2024-04-24T12:14:15+00:00"
         },
         {
             "name": "monolog/monolog",
