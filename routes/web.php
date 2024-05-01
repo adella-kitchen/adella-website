@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TambahKaryawan;
 use App\Http\Middleware\CheckAdminRole;
 use App\Livewire\Pages\Dashboard;
 use App\Livewire\Pages\Karyawan;
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // ------ login route ------
 Route::redirect('/', '/login');
+=======
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
@@ -26,7 +29,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', Dashboard::class);
         Route::get('/manajemen-bahan', ManajemenBahan::class);
         Route::get('/manajemen-menu', ManajemenMenu::class);
-        Route::get('/karyawan', Karyawan::class);
         Route::get('/pesanan', Pesanan::class);
+      
+        // ---- route karyawan ----
+        Route::get('/karyawan', Karyawan::class);
+        Route::post('/admin/karyawan/add-karyawan', [KaryawanController::class, 'addKaryawan'])->name('addKaryawan');
+        Route::get('/admin/karyawan/edit-karyawan/{id}', [KaryawanController::class, 'editKaryawan']);
+        Route::delete('/admin/karyawan/delete-karyawan/{id}', [KaryawanController::class, 'deleteData'])->name('deleteData');
+        Route::post('/admin/karyawan/update-karyawan/{id}', [KaryawanController::class, 'updateKaryawan'])->name('updateKaryawan');
     });
 });
+
