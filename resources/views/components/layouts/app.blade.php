@@ -21,10 +21,10 @@
             @include('livewire.component.navbar', ['title' => $title])
         </header>
         {{ $slot }}
+        @include('sweetalert::alert')
     </div>
 
     <script>
-
         $(document).ready(function() {
             $('#myTable').DataTable({
                 info: false,
@@ -37,6 +37,8 @@
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     {{-- <script>
         const config = {
             type: 'bar',
@@ -81,13 +83,13 @@
     </script> --}}
     <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $('.btn-edit').click(function(){
+        $(document).ready(function() {
+            $('.btn-edit').click(function() {
                 var id = $(this).data('id');
                 $.ajax({
                     url: '/admin/karyawan/edit-karyawan/' + id,
                     type: 'GET',
-                    success: function(response){
+                    success: function(response) {
                         console.log(response)
                         $('#edit-karyawan-modal #id').val(response['id'])
                         $('#edit-karyawan-modal #name').val(response['name'])
@@ -97,30 +99,30 @@
                         $('#edit-karyawan-modal #tanggal_lahir').val(response['tanggal_lahir'])
                         $('#edit-karyawan-modal #tempat_lahir').val(response['tempat_lahir'])
                     },
-                    error: function(xhr){
+
+                    error: function(xhr) {
                         console.log('error');
                         console.log(xhr.responseText);
-                        
+
                     }
                 });
             });
-        
-            $('.close').click(function(){
+
+            $('.close').click(function() {
                 $('#myModal').hide();
             });
         });
-        </script>
-        <script>
-            $(document).ready(function(){
-                $('#form-edit-karyawan').submit(function(e){
-                    e.preventDefault(); 
-                    var id = $('#edit-karyawan-modal #id').val();
-                    var actionUrl = '/admin/karyawan/update-karyawan/' + id;
-                    $(this).attr('action', actionUrl);
-                    this.submit();
-                });
-
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#form-edit-karyawan').submit(function(e) {
+                e.preventDefault();
+                var id = $('#edit-karyawan-modal #id').val();
+                var actionUrl = '/admin/karyawan/update-karyawan/' + id;
+                $(this).attr('action', actionUrl);
+                this.submit();
             });
+
         </script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
@@ -132,6 +134,7 @@
         </script>
 
         
+
 </body>
 
 </html>
