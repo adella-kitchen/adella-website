@@ -40,6 +40,8 @@ class KaryawanController extends Controller
             'tanggal_lahir' => $request->tanggal_lahir,
             'tempat_lahir' => $request->tempat_lahir,
         ]);
+
+        session()->flash('success', 'Data berhasil diedit.');
         return redirect('/admin/karyawan');
     }
 

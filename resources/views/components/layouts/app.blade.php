@@ -98,7 +98,6 @@
                         $('#edit-karyawan-modal #tempat_lahir').val(response['tempat_lahir'])
                     },
                     error: function(xhr){
-                        
                         console.log('error');
                         console.log(xhr.responseText);
                         
@@ -123,6 +122,15 @@
 
             });
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            $(document).ready(function(){
+                $('#yes-button').click(function(){
+                    $('#deleteForm').submit();
+                });
+            });
+        </script>
+
         
 </body>
 

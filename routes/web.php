@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // ------ login route ------
 Route::redirect('/', '/login');
-=======
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
@@ -33,10 +33,10 @@ Route::middleware('auth')->group(function () {
       
         // ---- route karyawan ----
         Route::get('/karyawan', Karyawan::class);
-        Route::post('/admin/karyawan/add-karyawan', [KaryawanController::class, 'addKaryawan'])->name('addKaryawan');
-        Route::get('/admin/karyawan/edit-karyawan/{id}', [KaryawanController::class, 'editKaryawan']);
-        Route::delete('/admin/karyawan/delete-karyawan/{id}', [KaryawanController::class, 'deleteData'])->name('deleteData');
-        Route::post('/admin/karyawan/update-karyawan/{id}', [KaryawanController::class, 'updateKaryawan'])->name('updateKaryawan');
+        Route::get('/karyawan/edit-karyawan/{id}', [KaryawanController::class, 'editKaryawan']);
+        Route::post('/karyawan/add-karyawan', [KaryawanController::class, 'addKaryawan'])->name('addKaryawan');
+        Route::delete('/karyawan/delete-karyawan/{id}', [KaryawanController::class, 'deleteData'])->name('deleteForm');
+        Route::post('/karyawan/update-karyawan/{id}', [KaryawanController::class, 'updateKaryawan'])->name('updateKaryawan');
     });
 });
 
