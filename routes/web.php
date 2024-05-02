@@ -3,6 +3,7 @@
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TambahKaryawan;
+use App\Http\Controllers\TestingController;
 use App\Http\Middleware\CheckAdminRole;
 use App\Livewire\Pages\Dashboard;
 use App\Livewire\Pages\Karyawan;
@@ -21,6 +22,8 @@ Route::redirect('/', '/login');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::get('/testapi/menu/{id}', [TestingController::class, 'index']);
 
 // ------ register route ------
 Route::get('/register', [LoginController::class, 'register'])->name('register');
@@ -46,5 +49,3 @@ Route::middleware('auth')->group(function () {
         });
     });
 });
-
-
