@@ -21,6 +21,7 @@
             @include('livewire.component.navbar', ['title' => $title])
         </header>
         {{ $slot }}
+        @include('sweetalert::alert')
     </div>
 
     <script>
