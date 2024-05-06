@@ -3,9 +3,11 @@
 namespace App\Livewire\Pages;
 
 use Livewire\Component;
+use App\Models\Promo;
 
 class ManajemenKontenpromo extends Component
 {
+
     public $title = 'Manajemen Konten Promo';
     public function render()
     {

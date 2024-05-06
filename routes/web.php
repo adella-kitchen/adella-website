@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\kontenpromoController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PromoController;
 use App\Http\Controllers\TambahKaryawan;
 use App\Http\Middleware\CheckAdminRole;
 use App\Livewire\Pages\Dashboard;
@@ -32,10 +34,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/manajemen-bahan', ManajemenBahan::class);
         Route::get('/manajemen-menu', ManajemenMenu::class);
         Route::get('/pesanan', Pesanan::class);
-      
+
         // ---- route manajemen konten ----
         Route::get('/manajemen-konten', ManajemenKontenpromo::class);
-      
+        Route::post('/addPromo', [PromoController::class, 'addPromo'])->name('addPromo');
+
+
+
         // ---- route karyawan ----
         Route::prefix('karyawan')->group(function () {
             Route::get('/', Karyawan::class);
@@ -46,5 +51,3 @@ Route::middleware('auth')->group(function () {
         });
     });
 });
-
-
