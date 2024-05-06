@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
         Route::prefix('karyawan')->group(function () {
             Route::get('/', Karyawan::class);
             Route::post('/add-karyawan', [KaryawanController::class, 'addKaryawan'])->name('addKaryawan');
-            Route::get('/karyawan/edit-karyawan/{id}', [KaryawanController::class, 'editKaryawan']);
+            Route::get('/edit-karyawan/{id}', [KaryawanController::class, 'editKaryawan']);
             Route::delete('/delete-karyawan/{id}', [KaryawanController::class, 'deleteData'])->name('deleteData');
             Route::post('/update-karyawan/{id}', [KaryawanController::class, 'updateKaryawan'])->name('updateKaryawan');
         });
