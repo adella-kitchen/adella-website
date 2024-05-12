@@ -1,5 +1,5 @@
 <section class=" w-full h-[100dvh] py-[80px] px-[20px]">
-    
+
 <div  class="p-8 w-full h-full relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
     <button  data-modal-target="tambah-karyawan-modal" data-modal-toggle="tambah-karyawan-modal" class="rounded-[10px] hover:bg-rose-500 shadow-lg px-3 py-2 bg-red absolute right-4 text-white " > Tambah Karyawan </button>
     <table id="myTable" class="cell-border row-border w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -57,14 +57,14 @@
                 <th scope="col" class="px-6 py-3">
                     <span class="">Edit</span>
                 </th>
-                
+
             </tr>
         </thead>
         <tbody>
             @foreach ($daftar_karyawan as $karyawan )
             <tr class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td scope="row" class=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{$karyawan->name}} 
+                    {{$karyawan->name}}
                 </td>
                 <td class="px-6 py-4">
                     {{$karyawan->no_telp}}
@@ -82,12 +82,12 @@
                     {{$karyawan->role}}
                 </td>
                 <td class="px-6 py-4 text-center flex gap-[8px]">
-                   
+
                     <button data-id={{ $karyawan->id }} data-modal-target="edit-karyawan-modal" data-modal-toggle="edit-karyawan-modal" class="font-medium rounded-[10px] px-2 py-1 bg-blue-500 hover:bg-blue-700 text-white dark:text-blue-500 btn-edit ">Edit</button>
-                      
+
                     <form action="{{ route('deleteData', $karyawan->id) }}" method="POST">
                         @csrf
-                        @method('DELETE')                   
+                        @method('DELETE')
                     <button href="#" class="font-medium rounded-[10px] px-2 py-1 bg-red hover:bg-rose-500 text-white dark:text-blue-500 ">Hapus</button>
                     </form>
                 </td>
