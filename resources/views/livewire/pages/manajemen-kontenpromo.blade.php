@@ -32,20 +32,22 @@
     <div class="bg-white rounded-sm px-5 overflow-y-auto h-full">
         <div class="justify-center align-middle text-center font-medium text-xl py-7">Daftar Konten Promo</div>
         <div class="grid gap-4">
-            @for ($i = 0; $i < 8; $i++)
-                <div class="card p-7 border border-grey2 bg-grey6 rounded-lg flex flex-col">
-                    {{-- top side --}}
-                    <div class="flex">
-                        <div class="w-1/4 mr-4">
-                            <div class="border-dotted border-grey1 border-2 rounded-lg">
-                                <div class="p-2">
-                                    <div class="bg-contain">
-                                        <img class="rounded-lg" src="{{ asset('img/manajemen-konten/menu1.png') }}"
-                                            alt="">
-                                    </div>
+            @foreach ($daftar_promo as $promo)
+            @endforeach ($i = 0; $i < 8; $i++) <div
+                class="card p-7 border border-grey2 bg-grey6 rounded-lg flex flex-col">
+                {{-- top side --}}
+                <div class="flex">
+                    <div class="w-1/4 mr-4">
+                        <div class="border-dotted border-grey1 border-2 rounded-lg">
+                            <div class="p-2">
+                                <div class="bg-contain">
+                                    <img class="rounded-lg" src="{{ asset('img/manajemen-konten/menu1.png') }}"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <a href="/admin/manajemen-konten/{{ $promo->id_promo }}">
                         <div class="w-3/4 flex flex-col justify-between">
                             <div class=" mb-4 flex items-center">
                                 {{-- Input judul konten --}}
@@ -97,35 +99,36 @@
                             <input class="border border-[2px] border-grey4 p-4 w-full h-full rounded-lg text-left   "
                                 placeholder="Masukan deskripsi konten">
                         </div>
-                    </div>
-                    {{-- bottom side --}}
-                    <div class="mt-5 flex justify-between items-center">
-                        <button
-                            class="border w-1/4 bg-white border-grey2 py-2 font-medium text-grey2 hover:bg-grey2 hover:text-white">Upload</button>
-                        <div class="flex items-center">
-                            <button class="flex px-4 py-2 text-white rounded-md bg-green hover:bg-green2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
-                                    <path
-                                        d="M5 21h14a2 2 0 0 0 2-2V8l-5-5H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zM7 5h4v2h2V5h2v4H7V5zm0 8h10v6H7v-6z">
-                                    </path>
-                                </svg>
-                                <a class="ml-2" href="">Simpan</a>
-                            </button>
-                            <button class="flex px-4 ml-2 py-2 text-white rounded-md bg-red hover:bg-red3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
-                                    <path
-                                        d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm10.618-3L15 2H9L7.382 4H3v2h18V4z">
-                                    </path>
-                                </svg>
-                                <a class="ml-2" href="">Hapus</a>
-                            </button>
-                        </div>
+                    </a>
+                </div>
+                {{-- bottom side --}}
+                <div class="mt-5 flex justify-between items-center">
+                    <button
+                        class="border w-1/4 bg-white border-grey2 py-2 font-medium text-grey2 hover:bg-grey2 hover:text-white">Upload</button>
+                    <div class="flex items-center">
+                        <button class="flex px-4 py-2 text-white rounded-md bg-green hover:bg-green2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                                <path
+                                    d="M5 21h14a2 2 0 0 0 2-2V8l-5-5H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zM7 5h4v2h2V5h2v4H7V5zm0 8h10v6H7v-6z">
+                                </path>
+                            </svg>
+                            <a class="ml-2" href="">Simpan</a>
+                        </button>
+                        <button class="flex px-4 ml-2 py-2 text-white rounded-md bg-red hover:bg-red3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                                <path
+                                    d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm10.618-3L15 2H9L7.382 4H3v2h18V4z">
+                                </path>
+                            </svg>
+                            <a class="ml-2" href="">Hapus</a>
+                        </button>
                     </div>
                 </div>
-            @endfor
         </div>
+        @endforeach
+    </div>
     </div>
     {{-- end card --}}
     @include('livewire.component.input-konten')

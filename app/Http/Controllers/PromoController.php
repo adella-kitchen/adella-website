@@ -15,6 +15,10 @@ class PromoController extends Controller
             '$deskripsi_promo' => $request->deskripsi_promo
 
         ]);
-        return redirect()->route('admin/manajemen-konten');
+        if ($promo) {
+            return redirect('/admin/manajemen-konten');
+        } else {
+            dd('gagal di tambahkan');
+        }
     }
 }

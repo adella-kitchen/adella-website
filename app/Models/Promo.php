@@ -9,8 +9,7 @@ class promo extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = [
-        'judul_promo',
-        'deskripsi_promo'
-    ];
+    protected $guarded = ['id_promo'];
+    protected $primaryKey = 'id_promo';
+    protected $table = 'promo';
 }
