@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
@@ -24,7 +25,7 @@ class KaryawanController extends Controller
     }
 
     public function editKaryawan($id)
-    {
+    {   
         $datakaryawan = User::where('role', 'admin')->where('id', $id)->first();
         return response()->json($datakaryawan);
     }
@@ -39,15 +40,20 @@ class KaryawanController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'tanggal_lahir' => $request->tanggal_lahir,
             'tempat_lahir' => $request->tempat_lahir,
-        ]);
+        ]
+    );
+
+        Alert::success('Hore!', 'Post Created Successfully');
         return redirect('/admin/karyawan');
     }
+
+
 
 
     public function deleteData($id)
     {
         $data = User::findOrFail($id);
         $data->delete();
-        return redirect('/admin/karyawan')->with('success', 'Data berhasil dihapus');
+        return redirect('/admin/karyawan');
     }
 }

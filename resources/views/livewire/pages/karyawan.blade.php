@@ -1,5 +1,4 @@
 <section class=" w-full h-[100dvh] py-[80px] px-[20px]">
-
 <div  class="p-8 w-full h-full relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
     <button  data-modal-target="tambah-karyawan-modal" data-modal-toggle="tambah-karyawan-modal" class="rounded-[10px] hover:bg-rose-500 shadow-lg px-3 py-2 bg-red absolute right-4 text-white " > Tambah Karyawan </button>
     <table id="myTable" class="cell-border row-border w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -89,13 +88,17 @@
                         @csrf
                         @method('DELETE')
                     <button href="#" class="font-medium rounded-[10px] px-2 py-1 bg-red hover:bg-rose-500 text-white dark:text-blue-500 ">Hapus</button>
+
                     </form>
                 </td>
             </tr>
             @endforeach
+
         </tbody>
     </table>
 </div>
 @include('livewire.component.modal.EditKaryawan')
 @include('livewire.component.modal.TambahKaryawan')
+@include('livewire.component.modal.validations.DeleteKaryawan')
+
 </section>

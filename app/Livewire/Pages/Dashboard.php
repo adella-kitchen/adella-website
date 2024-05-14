@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages;
 
 use Livewire\Component;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Dashboard extends Component
 {

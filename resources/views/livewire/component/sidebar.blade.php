@@ -3,7 +3,7 @@
     aria-label="Sidebar">
     <div class="h-full px-3 py-6 overflow-y-auto bg-white border dark:bg-gray-800">
         <div class="w-full flex flex-col justify-center text-center items-center mb-10 gap-3">
-            <img src="/img/logo/ADELA_ORIGINAL.png" alt="" class="w-[90px] mt-">
+            <img src="/img/logo/ADELA_ORIGINAL.png" alt="" class="w-[90px] ">
         </div>
         <ul class="space-y-2 font-medium">
             <li>
