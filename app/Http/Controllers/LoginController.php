@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function index(){
-        return view('login');
+        return view('auth.login');
     }
 
     public function authenticate(Request $request){
@@ -40,7 +40,7 @@ class LoginController extends Controller
     }
 
     public function register(){
-        return view('register');
+        return view('auth.register');
     }
 
     public function addUser(Request $request){
@@ -49,7 +49,7 @@ class LoginController extends Controller
                 User::create([
                     'name' => $request->name,
                     'email' => $request->email,
-                    'password' => Hash  ::make($request->password),
+                    'password' => Hash::make($request->password),
                     'role' => 'custome',
                 ]);
                 return redirect('/login');
