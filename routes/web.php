@@ -9,12 +9,11 @@ use App\Livewire\Pages\Dashboard;
 use App\Livewire\Pages\Karyawan;
 use App\Livewire\Pages\Login;
 use App\Livewire\Pages\ManajemenBahan;
+use App\Livewire\Pages\ManajemenDetailBahan;
 use App\Livewire\Pages\ManajemenKontenpromo;
 use App\Livewire\Pages\ManajemenMenu;
 use App\Livewire\Pages\Pesanan;
 use Illuminate\Support\Facades\Route;
-
-
 
 // ------ login route ------
 Route::redirect('/', '/login');
@@ -33,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware(CheckAdminRole::class)->prefix('admin')->group(function () {
         Route::get('/dashboard', Dashboard::class);
         Route::get('/manajemen-bahan', ManajemenBahan::class);
+        Route::get('/manajemen-bahan/{id}', ManajemenDetailBahan::class);
         Route::get('/manajemen-menu', ManajemenMenu::class);
         Route::get('/pesanan', Pesanan::class);
 
