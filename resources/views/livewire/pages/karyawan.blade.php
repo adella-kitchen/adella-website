@@ -89,7 +89,7 @@
                 <td class="px-6 py-4 text-center flex gap-[8px]">
                    
                     <button data-id={{ $karyawan->id }} data-modal-target="edit-karyawan-modal" data-modal-toggle="edit-karyawan-modal" class="font-medium rounded-[10px] px-2 py-1 bg-blue-500 hover:bg-blue-700 text-white dark:text-blue-500 btn-edit ">Edit</button>  
-                    <form id="deleteForm" action="{{ route('deleteForm', $karyawan->id) }}" method="POST">
+                    <form id="deleteForm" action="{{ route('deleteData', $karyawan->id) }}" method="POST">
                         @csrf
                         @method('DELETE')                   
                         <button data-modal-target="deleteModal" data-modal-toggle="deleteModal" id="deleteButton{{ $karyawan->id }}" type="button" class="font-medium rounded-[10px] px-2 py-1 bg-red hover:bg-rose-500 text-white dark:text-blue-500">Hapus</button>

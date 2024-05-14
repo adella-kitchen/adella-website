@@ -35,10 +35,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/manajemen-bahan/{id}', ManajemenDetailBahan::class);
         Route::get('/manajemen-menu', ManajemenMenu::class);
         Route::get('/pesanan', Pesanan::class);
-      
+
         // ---- route manajemen konten ----
         Route::get('/manajemen-konten', ManajemenKontenpromo::class);
-      
+
         // ---- route karyawan ----
         Route::prefix('karyawan')->group(function () {
             Route::get('/', Karyawan::class);

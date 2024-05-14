@@ -70,17 +70,20 @@
                 var actionUrl = '/admin/karyawan/update-karyawan/' + id;
                 $(this).attr('action', actionUrl);
                 this.submit();
-            })
-        });
+                })
+            }
+        );
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        $(document).ready(function() {
-            $('#yes-button').click(function() {
+        $(document).ready(function(){
+            $('#yes-button').click(function(){
                 $('#deleteForm').submit();
             });
         });
     </script>
+
 </body>
 
 </html>
