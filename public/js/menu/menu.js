@@ -1,7 +1,6 @@
 $(document).ready(function() {
     // untuk menampilkan edit
     $('.card-detail-menu').click(function() {
-        alert("haloo");
         var id = $(this).data('id');
         // $.ajax({
         //     url: '/admin/karyawan/edit-karyawan/' + id,

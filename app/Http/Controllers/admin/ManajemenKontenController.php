@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 class ManajemenKontenController extends Controller
 {
     public function index(){
-        return view('admin.pages.manajemen-konten');
+        $daftar_promo = ContentPromo::all();
+        return view('admin.pages.manajemen-konten',[
+            'daftar_promo' =>  $daftar_promo
+        ]);
     }
 
     public function addPromo(Request $request)

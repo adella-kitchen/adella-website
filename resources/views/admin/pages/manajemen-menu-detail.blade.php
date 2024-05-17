@@ -44,7 +44,8 @@
             <div id="kumpulan-card-menu" class="w-full h-full flex flex-col gap-4 bg-white py-2 px-2">
                 @if ($daftar_menu)
                     @foreach ($daftar_menu as $menu)
-                        <div class="card-detail-menu bg-slate-100 w-full h-[50px] flex items-center px-[40px] text-black">
+                        <a href="/admin/manajemen-menu/{{ $menu->id_menu }}/{{ $menu->id_variant }}"
+                            class="card-detail-menu bg-slate-100 w-full h-[50px] flex items-center px-[40px] text-black">
                             <div class="flex-1">Tambahan : {{ $menu->variant_name }}</div>
                             <div class="flex gap-4">
                                 <span class="flex items-center">
@@ -56,7 +57,7 @@
                                     <p class="font-medium text-red">Delete</p>
                                 </span>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 @else
                     <div class="w-full flex justify-center items-center h-full">
@@ -69,7 +70,7 @@
         <div class="right-side w-[35%] h-full bg-white border py-[10px] px-[10px]">
             <div class="w-full border-b pb-4">
                 <button
-                    class="border-2 border-red px-4 py-3 rounded-md text-red font-medium text-[14px] hover:bg-red hover:text-white">
+                    class="border-2 border-red px-4 py-2 rounded-md text-red font-medium text-[14px] hover:bg-red hover:text-white">
                     + Varian Menu</button>
             </div>
             <div class="h-full flex flex-col justify-between">
@@ -77,23 +78,32 @@
                     <h2 class="w-full py-4 text-center font-semibold text-black1">Daftar Opsi Varian</h2>
                     <table id="menu-table" class="w-full text-[14px]">
                         <tbody>
-                            @for ($i = 1; $i < 7; $i++)
-                                <tr class="flex w-full my-2">
-                                    <td class="p-4 w-[60%]">{{ '#' . $i }} Mie Pangsit Medium</td>
-                                    <td class="p-4 flex-1">100gr</td>
-                                    <td class="p-4 flex-1 flex gap-2">
-                                        <i class="ri-pencil-fill"></i>
-                                        <i class="ri-delete-bin-7-fill"></i>
-                                        {{-- <x-eos-edit class="w-6 bg-blue-800 text-white p-1 rounded-full" />
-                                        <x-gmdi-delete-r class="w-6 bg-red text-white p-1 rounded-full" /> --}}
-                                    </td>
-                                </tr>
-                            @endfor
+                            @if ($variant_option != null)
+                                @foreach ($variant_option as $variant)
+                                    <tr class="flex w-full my-2">
+                                        <td class="p-4 w-[50%]">
+                                            {{ '#' . $variant->id_variant . '. ' . $variant->variant_detail }}
+                                        </td>
+                                        <td class="p-4 flex-1 text-red">{{ '+ Rp. ' . $variant->additional_price }}</td>
+                                        <td class="p-4 flex-1 flex gap-2">
+                                            <i class="ri-pencil-fill"></i>
+                                            <i class="ri-delete-bin-7-fill"></i>
+                                            {{-- <x-eos-edit class="w-6 bg-blue-800 text-white p-1 rounded-full" />
+                                <x-gmdi-delete-r class="w-6 bg-red text-white p-1 rounded-full" /> --}}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <div class="w-full h-full flex justify-center items-center">
+                                    <p>data kosong</p>
+                                </div>
+                            @endif
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        {{-- @include('livewire.component.modal.manajemen-varian.input-varian') --}}
+        @include('admin.component.modal.manajemen-menu.input-varian')
     </section>
 @endsection

@@ -23,11 +23,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
         Route::get('/manajemen-bahan', [ManajemenBahanController::class, 'index']);
         // Route::get('/manajemen-bahan/{id}', ManajemenDetailBahan::class);
-        Route::get('/manajemen-menu', [ManajemenMenuController::class, 'index']);
-        Route::get('/manajemen-menu/{id}', [ManajemenMenuController::class, 'detailMenu']);
+       
         // Route::post('/manajemen-menu/tambahmenu', [MenuController::class, 'addMenu']);
         Route::get('/pesanan', [PesananController::class,'index']);
       
+        // ---- route manajemen menu ----
+        Route::prefix('manajemen-menu')->group(function () {
+            Route::get('/', [ManajemenMenuController::class, 'index']);
+            Route::get('/{id}', [ManajemenMenuController::class, 'detailMenu']);
+            Route::get('/{id}/{id_variant}', [ManajemenMenuController::class, 'variantOptionShow']);
+        });
+        
         // ---- route manajemen konten ----
         Route::prefix('manajemen-konten')->group(function () {
             Route::get('/', [ManajemenKontenController::class, 'index']);
