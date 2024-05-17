@@ -31,6 +31,7 @@
     <script src="/js/datatable.js"></script>
     <script src="/js/karyawan/karyawan.js"></script>
     <script src="/js/menu/menu.js"></script>
+    <script src="/js/order/order.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
