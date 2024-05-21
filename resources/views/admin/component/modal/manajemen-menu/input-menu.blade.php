@@ -20,7 +20,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="{{ url('/admin/manajemen-menu/tambahmenu') }}" method="post" class="p-4 md:p-5">
+            <form action="{{ route('addMenu') }}" method="post" class="p-4 md:p-5">
                 @csrf
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">

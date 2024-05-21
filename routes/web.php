@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [ManajemenMenuController::class, 'index']);
             Route::get('/{id}', [ManajemenMenuController::class, 'detailMenu']);
             Route::get('/{id}/{id_variant}', [ManajemenMenuController::class, 'variantOptionShow']);
+            Route::post('/add-menu', [ManajemenMenuController::class, 'addMenu'])->name('addMenu');
+            Route::post('/add-variant', [ManajemenMenuController::class, 'addVariant'])->name('addVariant');
+            Route::post('/add-option-variant', [ManajemenMenuController::class, 'addOptionVariant'])->name('addOptionVariant');
         });
         
         // ---- route manajemen konten ----

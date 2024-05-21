@@ -69,13 +69,17 @@
         </div>
         <div class="right-side w-[35%] h-full bg-white border py-[10px] px-[10px]">
             <div class="w-full border-b pb-4">
-                <button
+                <button data-modal-target="input-opsi-varian" data-modal-toggle="input-opsi-varian"
                     class="border-2 border-red px-4 py-2 rounded-md text-red font-medium text-[14px] hover:bg-red hover:text-white">
-                    + Varian Menu</button>
+                    + Tambah Opsi Varian</button>
             </div>
             <div class="h-full flex flex-col justify-between">
                 <div>
-                    <h2 class="w-full py-4 text-center font-semibold text-black1">Daftar Opsi Varian</h2>
+                    <div>
+                        <h2 class="w-full py-4 text-center font-semibold text-[18px] text-black1">Detail Varian</h2>
+                        <p><span class="font-semibold">Nama Varian</span>: {{ $variant_option[0]->variant_name }} </p>
+                    </div>
+                    <h2 class="w-full py-4 text-center font-semibold text-[18px] text-black1">Daftar Opsi Varian</h2>
                     <table id="menu-table" class="w-full text-[14px]">
                         <tbody>
                             @if ($variant_option != null)
@@ -105,5 +109,6 @@
             </div>
         </div>
         @include('admin.component.modal.manajemen-menu.input-varian')
+        @include('admin.component.modal.manajemen-menu.input-opsi-varian')
     </section>
 @endsection
