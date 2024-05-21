@@ -9,7 +9,9 @@ class ContentPromo extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $guarded = ['id_promo'];
+    protected $guarded = [
+        'image_path',
+    ];
     protected $primaryKey = 'id_promo';
     protected $table = 'content_promo';
 }
