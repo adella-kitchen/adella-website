@@ -12,4 +12,9 @@ class DetailVariant extends Model
     protected $primaryKey = 'id_detail_variant';
     protected $table = 'detail_variant';
     public $timestamps = false;
+
+    public function variant()
+    {
+        return $this->belongsTo(Variant::class, 'id_variant');
+    }
 }

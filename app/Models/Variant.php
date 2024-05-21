@@ -12,4 +12,14 @@ class Variant extends Model
     protected $primaryKey = 'id_variant';
     protected $table = 'variant';
     public $timestamps = false;
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class, 'id_menu');
+    }
+
+    public function detailVariants()
+    {
+        return $this->hasMany(DetailVariant::class, 'id_variant');
+    }
 }
