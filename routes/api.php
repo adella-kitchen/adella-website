@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/menu', [MenuController::class, 'index'])->middleware('auth:sanctum');
 Route::get('/menu/{id}', [MenuController::class, 'show'])->middleware('auth:sanctum');
+Route::get('/menu/kategori/{category}', [MenuController::class, 'getCategory'])->middleware('auth:sanctum');
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout',[AuthController::class, 'logout'])->middleware('auth:sanctum');

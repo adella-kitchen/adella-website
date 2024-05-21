@@ -49,4 +49,19 @@ class MenuController extends Controller
             return response()->json(['message' => 'Menu tidak ditemukan'], 404);
         }
     }
+
+    public function getCategory($category)
+    {
+
+        try {
+            $menu = Menu::where('menu_category', $category)->get();
+
+            if ($menu->isEmpty()) {
+                return response()->json(['message' => 'Tidak ada menu dalam kategori ini'], 404);
+            }
+            return response()->json(['data' => $menu]);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal memuat data menu'], 500);
+        }
+    }
 }
