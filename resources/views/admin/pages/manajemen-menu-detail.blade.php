@@ -68,17 +68,22 @@
 
         </div>
         <div class="right-side w-[35%] h-full bg-white border py-[10px] px-[10px]">
-            <div class="w-full border-b pb-4">
-                <button data-modal-target="input-opsi-varian" data-modal-toggle="input-opsi-varian"
-                    class="border-2 border-red px-4 py-2 rounded-md text-red font-medium text-[14px] hover:bg-red hover:text-white">
-                    + Tambah Opsi Varian</button>
-            </div>
+            @if ($variant_option)
+                <div class="w-full border-b pb-4">
+                    <button data-modal-target="input-opsi-varian" data-modal-toggle="input-opsi-varian"
+                        class="border-2 border-red px-4 py-2 rounded-md text-red font-medium text-[14px] hover:bg-red hover:text-white">
+                        + Tambah Opsi Varian</button>
+                </div>
+            @endif
             <div class="h-full flex flex-col justify-between">
                 <div>
-                    <div>
-                        <h2 class="w-full py-4 text-center font-semibold text-[18px] text-black1">Detail Varian</h2>
-                        <p><span class="font-semibold">Nama Varian</span>: {{ $variant_option[0]->variant_name }} </p>
-                    </div>
+                    @if ($variant_option)
+                        <div>
+                            <h2 class="w-full py-4 text-center font-semibold text-[18px] text-black1">Detail Varian</h2>
+                            <p><span class="font-semibold">Nama Varian</span>: {{ $variant_option[0]->variant_name }} </p>
+                        </div>
+                    @endif
+
                     <h2 class="w-full py-4 text-center font-semibold text-[18px] text-black1">Daftar Opsi Varian</h2>
                     <table id="menu-table" class="w-full text-[14px]">
                         <tbody>

@@ -15,11 +15,11 @@ class Menu extends Model
 
     public function variants()
     {
-        return $this->hasMany(Variant::class, 'id_menu');
+        return $this->hasMany(Variant::class, 'id_menu', 'id_menu');
     }
 
-    public function detailVariants()
+    public function cart()
     {
-        return $this->hasManyThrough(DetailVariant::class, Variant::class, 'id_menu', 'id_variant');
+        return $this->hasMany(Cart::class, 'id_menu', 'id_menu');
     }
 }

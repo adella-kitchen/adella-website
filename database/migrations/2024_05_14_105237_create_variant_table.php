@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('variant', function (Blueprint $table) {
             $table->id('id_variant');
             $table->string('variant_name');
-            $table->unsignedBigInteger('id_menu');
+            $table->BigInteger('id_menu')->unsigned();
             $table->string('variant_img');
             $table->string('desc_variant');
 

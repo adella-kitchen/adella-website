@@ -17,6 +17,11 @@ class ManajemenMenuController extends Controller
     public $id_menu;
 
     public function index(){
+        // test
+        $menu = Menu::with('variants.detailVariants')->get();
+        // dd($menu);
+        return response()->json($menu);
+
         $daftar_menu = Menu::all();
         return view('admin.pages.manajemen-menu',[
             'title' => 'Menu',
@@ -24,9 +29,9 @@ class ManajemenMenuController extends Controller
             'variant_option' => $this->variant_option,
         ]);
     }
-    
+
     public function detailMenu($id){
-        //set id_menu 
+        //set id_menu
         Session::put('id_menu', $id);
 
         $daftar_menu = DB::table('menu')
@@ -49,7 +54,7 @@ class ManajemenMenuController extends Controller
             ->select('menu.*', 'variant.*')
             ->where('menu.id_menu', $id)
             ->get();
-            
+
         $this->variant_option = DB::table('variant')
             ->join('detail_variant', 'variant.id_variant', '=', 'detail_variant.id_variant')
             ->select('variant.*', 'detail_variant.*')

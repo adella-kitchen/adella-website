@@ -15,6 +15,6 @@ class DetailVariant extends Model
 
     public function variant()
     {
-        return $this->belongsTo(Variant::class, 'id_variant');
+        return $this->belongsTo(Variant::class, 'id_variant', 'id_variant');
     }
 }
