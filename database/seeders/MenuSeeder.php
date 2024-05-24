@@ -15,22 +15,22 @@ class MenuSeeder extends Seeder
     {
         DB::table('menu')->insert([
             [
-                'menu_category' => 'makanan',
-                'menu_name' => 'Nasi Goreng',
-                'desc_menu' => 'Nasi goreng spesial dengan bumbu tradisional',
+                'menu_category' => 'paket',
+                'menu_name' => 'Paket ayam geprek',
+                'desc_menu' => 'Paket ayam geprek nasional',
+                'price_menu' => 10000,
+            ],
+            [
+                'menu_category' => 'paket',
+                'menu_name' => 'Paket combo 4',
+                'desc_menu' => 'Paket combo 4 berisi sapi pilihan',
                 'price_menu' => 15000,
             ],
             [
-                'menu_category' => 'makanan',
-                'menu_name' => 'Ayam Bakar',
-                'desc_menu' => 'Ayam bakar dengan sambal pedas',
-                'price_menu' => 20000,
-            ],
-            [
-                'menu_category' => 'makanan',
-                'menu_name' => 'Bakso Goreng',
-                'desc_menu' => 'Bakso Goreng dengan sambal pedas',
-                'price_menu' => 28000,
+                'menu_category' => 'paket',
+                'menu_name' => 'Paket paketan',
+                'desc_menu' => 'Paketan makanan the best',
+                'price_menu' => 12000,
             ],
         ]);
 
