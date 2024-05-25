@@ -25,4 +25,14 @@ class Menu extends Model
     {
         return $this->hasMany(Cart::class, 'id_menu', 'id_menu');
     }
+
+    public function detailVariant()
+    {
+        return $this->belongsTo(DetailVariant::class, 'id_detail_variant', 'id_detail_variant');
+    }
+
+    public function variant()
+    {
+        return $this->belongsTo(Variant::class, 'id_variant', 'id_variant');
+    }
 }

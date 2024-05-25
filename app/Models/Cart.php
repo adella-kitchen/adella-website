@@ -13,15 +13,10 @@ class Cart extends Model
     protected $table = 'cart';
     public $timestamps = false;
 
-    public function menu()
-    {
-        return $this->belongsTo(Menu::class, 'id_menu', 'id_menu');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'id_users', 'id');
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'id_users', 'id');
+    // }
 
     public function detailCart()
     {

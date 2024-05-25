@@ -18,6 +18,11 @@ class Variant extends Model
         return $this->belongsTo(Menu::class, 'id_menu', 'id_menu');
     }
 
+    public function menuCart()
+    {
+        return $this->hasOne(Menu::class, 'id_menu', 'id_menu');
+    }
+
     public function detailVariants()
     {
         return $this->hasMany(DetailVariant::class, 'id_variant', 'id_variant');

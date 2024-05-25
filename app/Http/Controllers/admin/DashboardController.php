@@ -18,7 +18,7 @@ class DashboardController extends Controller
         // $cart = Menu::with('carts')->get();
         // return response()->json($cart);
 
-        $cart = Cart::with('menu.variants')->get();
+        $cart = Cart::with('detailCart.detailVariant.variant.menuCart')->get();
         return response()->json($cart);
     }
 }

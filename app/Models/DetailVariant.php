@@ -13,8 +13,12 @@ class DetailVariant extends Model
     protected $table = 'detail_variant';
     public $timestamps = false;
 
+    public function detailCart()
+    {
+        return $this->belongsTo(DetailCart::class, 'id_detail_cart', 'id_detail_cart');
+    }
     public function variant()
     {
-        return $this->belongsTo(Variant::class, 'id_variant', 'id_variant');
+        return $this->hasOne(Variant::class, 'id_variant', 'id_variant');
     }
 }

@@ -20,6 +20,6 @@ class DetailCart extends Model
 
     public function detailVariant()
     {
-        return $this->belongsTo(DetailVariant::class, 'id_detail_variant', 'id_detail_variant');
+        return $this->hasOne(DetailVariant::class, 'id_detail_variant', 'id_detail_variant');
     }
 }
