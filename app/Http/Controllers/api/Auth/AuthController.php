@@ -42,11 +42,6 @@ class AuthController extends Controller
             'data' => [
                 'id' => $user->id,
                 'name' => $user->name,
-                'email' => $user->email,
-                'no_telp' => $user->no_telp,
-                'jenis_kelamin' => $user->jenis_kelamin,
-                'tanggal_lahir' => $user->tanggal_lahir,
-                'tempat_lahir' => $user->tempat_lahir,
             ]
         ]);
     }
@@ -55,6 +50,16 @@ class AuthController extends Controller
     {
         $request->user()->currentAccessToken()->delete();
         return response()->json(['message' => 'Berhsil Logout'], 200);
+    }
+
+    public function getUser($id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            return response()->json(['data' => $user]);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'User tidak ditemukan'], 404);
+        }
     }
 
     public function register(Request $request)
