@@ -19,7 +19,7 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/add-user', [LoginController::class, 'addUser']);
 
 //testing API
-Route::get('/api-testing', [DashboardController::class, 'apiTesting']);
+Route::get('/api-testing/{id}', [DashboardController::class, 'apiTesting']);
 
 Route::middleware('auth')->group(function () {
     Route::middleware(CheckAdminRole::class)->prefix('admin')->group(function () {

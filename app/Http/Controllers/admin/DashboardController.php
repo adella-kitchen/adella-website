@@ -14,11 +14,11 @@ class DashboardController extends Controller
         return view('admin.pages.dashboard');
     }
 
-    publIc function apiTesting(){
+    public function apiTesting($id){
         // $cart = Menu::with('carts')->get();
         // return response()->json($cart);
 
-        $cart = Cart::with('detailCart.detailVariant.variant.menuCart')->get();
+        $cart = Cart::with('detailCart.detailVariant.variant.menuCart')->where('id_users', $id)->get();
         return response()->json($cart);
     }
 }

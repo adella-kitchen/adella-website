@@ -19,6 +19,7 @@ Route::get('/menu/kategori/{category}', [MenuController::class, 'getCategory'])-
 
 // api cart
 Route::get('/cart', [CartAPIController::class, 'index'])->middleware('auth:sanctum');
+Route::post('/cart/add-cart', [CartAPIController::class, 'addCart'])->middleware('auth:sanctum');
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout',[AuthController::class, 'logout'])->middleware('auth:sanctum');
