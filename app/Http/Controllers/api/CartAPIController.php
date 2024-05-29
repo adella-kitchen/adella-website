@@ -44,4 +44,45 @@ class CartAPIController extends Controller
             return response()->json(['message' => 'Menu tidak ditemukan'], 404);
         }
     }
+
+    public function plusQtyMenu($id){
+        try {
+            $cart = Cart::findOrFail($id);
+            $cart->qty_menu += 1;
+            $cart->save();
+            return response()->json($cart);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json(['message' => 'Menu tidak ditemukan'], 404);
+        }
+    }
+
+    public function minusQtyMenu($id){
+        try {
+            $cart = Cart::findOrFail($id);
+            if ($cart->qty_menu == 1) {
+                $cart->delete();
+                return response()->json($cart);
+            }else{
+                $cart->qty_menu -= 1;
+                $cart->save();
+            }
+            return response()->json($cart);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json(['message' => 'Menu tidak ditemukan'], 404);
+        }
+    }
+
+    public function deleteMenuCart($id){
+        try {
+            $cart = Cart::findOrFail($id);
+            $detail_cart = DetailCart::where('id_cart', $cart->id_cart)->get();
+            foreach ($detail_cart as $detail) {
+                $detail->delete();
+            }
+            $cart->delete();
+            return response()->json("sukses menghapus produk");
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json(['message' => 'Menu tidak ditemukan'], 404);
+        }
+    }
 }

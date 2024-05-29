@@ -15,6 +15,7 @@ class OrderSeeder extends Seeder
     {
         DB::table('order')->insert([
             [
+                'id_users' => 1,
                 'order_number' => 'ORD123456',
                 'order_date' => now(),
                 'order_status' => 'confirmed',
@@ -22,6 +23,7 @@ class OrderSeeder extends Seeder
                 'note' => 'Order note 1'
             ],
             [
+                'id_users' => 1,
                 'order_number' => 'ORD123457',
                 'order_date' => now(),
                 'order_status' => 'confirmed',
@@ -29,6 +31,7 @@ class OrderSeeder extends Seeder
                 'note' => 'Order note 2'
             ],
             [
+                'id_users' => 1,
                 'order_number' => 'ORD123458',
                 'order_date' => now(),
                 'order_status' => 'confirmed',
@@ -36,6 +39,7 @@ class OrderSeeder extends Seeder
                 'note' => 'Order note 3'
             ],
             [
+                'id_users' => 1,
                 'order_number' => 'ORD123459',
                 'order_date' => now(),
                 'order_status' => 'unconfirm',
@@ -43,6 +47,7 @@ class OrderSeeder extends Seeder
                 'note' => 'Order note 4'
             ],
             [
+                'id_users' => 1,
                 'order_number' => 'ORD123460',
                 'order_date' => now(),
                 'order_status' => 'unconfirm',

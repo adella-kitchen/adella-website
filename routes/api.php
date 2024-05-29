@@ -4,6 +4,7 @@ use App\Http\Controllers\api\Auth\AuthController;
 use App\Http\Controllers\api\CartAPIController;
 use App\Http\Controllers\api\ContentPromoController;
 use App\Http\Controllers\api\MenuController;
+use App\Http\Controllers\api\OrderAPIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -11,17 +12,28 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-// api me
-Route::get('/menu', [MenuController::class, 'index'])->middleware('auth:sanctum');
-Route::get('/menu/{id}', [MenuController::class, 'show'])->middleware('auth:sanctum');
-Route::get('/menu/kategori/{category}', [MenuController::class, 'getCategory'])->middleware('auth:sanctum');
+// ---- AUTH API ----
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+
 Route::get('/user/{id}', [AuthController::class, 'getUser'])->middleware('auth:sanctum');
 Route::get('/promo', [ContentPromoController::class, 'getPromo'])->middleware('auth:sanctum');
 
+// ---- MENU API ----
+Route::prefix('menu')->group(function () {
+    Route::get('/', [MenuController::class, 'index'])->middleware('auth:sanctum');
+    Route::get('/{id}', [MenuController::class, 'show'])->middleware('auth:sanctum');
+    Route::get('/kategori/{category}', [MenuController::class, 'getCategory'])->middleware('auth:sanctum');
+});
 
-// api cart
-Route::get('/cart', [CartAPIController::class, 'index'])->middleware('auth:sanctum');
-Route::post('/cart/add-cart', [CartAPIController::class, 'addCart'])->middleware('auth:sanctum');
+// ---- CART API ----
+Route::prefix('cart')->group(function () {
+    Route::get('/', [CartAPIController::class, 'index'])->middleware('auth:sanctum');
+    Route::post('/add-cart', [CartAPIController::class, 'addCart'])->middleware('auth:sanctum');
+    Route::get('/plus-cart/{id}', [CartAPIController::class, 'plusQtyMenu'])->middleware('auth:sanctum');
+    Route::get('/minus-cart/{id}', [CartAPIController::class, 'minusQtyMenu'])->middleware('auth:sanctum');
+    Route::get('/delete-cart/{id}', [CartAPIController::class, 'deleteMenuCart'])->middleware('auth:sanctum');
+});
 
-Route::post('/login', [AuthController::class, 'login']);
-Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+// ---- ORDER API ----
+Route::post('/order/add-order', [OrderAPIController::class, 'addOrder'])->middleware('auth:sanctum');

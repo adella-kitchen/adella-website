@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_detail', function (Blueprint $table) {
-            $table->id('id_order_detail');
-            $table->BigInteger('id_order')->unsigned();
-            $table->BigInteger('id_menu')->unsigned();
-            $table->BigInteger('id_variant')->unsigned();
-            $table->integer('order_qty');
+        // Schema::create('order_detail', function (Blueprint $table) {
+        //     $table->id('id_order_detail');
+        //     $table->BigInteger('id_order')->unsigned();
+        //     $table->BigInteger('id_menu')->unsigned();
+        //     $table->BigInteger('id_detail_variant')->unsigned();
+        //     $table->integer('order_qty');
 
-            $table->foreign('id_order')->references('id_order')->on('order');
-            $table->foreign('id_menu')->references('id_menu')->on('menu');
-            $table->foreign('id_variant')->references('id_variant')->on('variant');
-        });
+        //     $table->foreign('id_order')->references('id_order')->on('order');
+        //     $table->foreign('id_menu')->references('id_menu')->on('menu');
+        //     $table->foreign('id_detail_variant')->references('id_detail_variant')->on('detail_variant');
+        // });
     }
 
     /**
