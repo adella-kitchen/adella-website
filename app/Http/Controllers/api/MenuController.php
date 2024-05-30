@@ -9,15 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class MenuController extends Controller
 {
-    // public function index()
-    // { //get all
-    //     try {
-    //         $menu = Menu::all();
-    //         return response()->json(['data' => $menu]);
-    //     } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-    //         return response()->json(['message' => 'Tidak ada menu'], 404);
-    //     }
-    // }
 
     public function index(Request $request)
     {
@@ -27,17 +18,25 @@ class MenuController extends Controller
 
             if ($limit) {
                 // Jika limit ada, ambil sejumlah item sesuai limit
-                $menus = Menu::limit($limit)->get();
+                $menus = Menu::with('variants')->limit($limit)->get();
             } else {
                 // Jika limit tidak ada, ambil semua item
-                $menus = Menu::all();
+                $menus = Menu::with('variants')->get();
             }
+
+            // Modifikasi data menu untuk memasukkan gambar varian pertama
+            $menus = $menus->map(function ($menu) {
+                $menu->variant_img = $menu->variants->isNotEmpty() ? $menu->variants->first()->variant_img : null;
+                unset($menu->variants); // Hapus varian dari respons jika tidak diperlukan
+                return $menu;
+            });
 
             return response()->json(['data' => $menus]);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Gagal memuat data menu'], 500);
         }
     }
+
 
 
     public function show($id)
