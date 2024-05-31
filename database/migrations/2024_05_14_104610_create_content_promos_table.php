@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('content_promo', function (Blueprint $table) {
             $table->id('id_promo');
-            // $table->string('gambar_konten');
             $table->string('judul_promo');
-            $table->string('deskripsi_promo');
+            $table->text('deskripsi_promo');
+            $table->timestamps();
         });
     }
 

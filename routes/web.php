@@ -26,14 +26,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/manajemen-menu', [ManajemenMenuController::class, 'index']);
         Route::get('/manajemen-menu/{id}', [ManajemenMenuController::class, 'detailMenu']);
         // Route::post('/manajemen-menu/tambahmenu', [MenuController::class, 'addMenu']);
-        Route::get('/pesanan', [PesananController::class,'index']);
-      
+        Route::get('/pesanan', [PesananController::class, 'index']);
+
         // ---- route manajemen konten ----
         Route::prefix('manajemen-konten')->group(function () {
-            Route::get('/', [ManajemenKontenController::class, 'index']);
-            Route::post('/addPromo', [ManajemenKontenController::class, 'addPromo'])->name('addPromo');
+            Route::get('/', [ManajemenKontenController::class, 'index'])->name('promo.index');
+            Route::get('/promo/create', [ManajemenKontenController::class, 'create'])->name('promo.create');
+            Route::post('/promo/store', [ManajemenKontenController::class, 'store'])->name('promo.store');
+            Route::get('/promo/delete/{id_promo}', [ManajemenKontenController::class, 'destroy'])->name('promo.delete');
         });
-        
+
         // ---- route karyawan ----
         Route::prefix('karyawan')->group(function () {
             Route::get('/', [KaryawanController::class, 'index']);
