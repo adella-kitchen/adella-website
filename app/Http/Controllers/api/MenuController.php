@@ -13,18 +13,14 @@ class MenuController extends Controller
     public function index(Request $request)
     {
         try {
-            // Ambil nilai parameter limit dari query string, jika tidak ada maka null
             $limit = $request->query('limit');
 
             if ($limit) {
-                // Jika limit ada, ambil sejumlah item sesuai limit
                 $menus = Menu::with('variants')->limit($limit)->get();
             } else {
-                // Jika limit tidak ada, ambil semua item
                 $menus = Menu::with('variants')->get();
             }
 
-            // Modifikasi data menu untuk memasukkan gambar varian pertama
             $menus = $menus->map(function ($menu) {
                 $menu->variant_img = $menu->variants->isNotEmpty() ? $menu->variants->first()->variant_img : null;
                 unset($menu->variants); // Hapus varian dari respons jika tidak diperlukan
