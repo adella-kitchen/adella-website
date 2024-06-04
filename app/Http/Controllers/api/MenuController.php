@@ -47,7 +47,6 @@ class MenuController extends Controller
 
     public function getCategory($category)
     {
-
         try {
             $menu = Menu::where('menu_category', $category)->get();
 

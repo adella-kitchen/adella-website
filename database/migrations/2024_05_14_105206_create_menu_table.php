@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('menu_name', 20);
             $table->string('desc_menu');
             $table->integer('price_menu');
+            $table->string('menu_img');
         });
     }
 

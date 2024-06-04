@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id('id_variant');
             $table->string('variant_name');
             $table->BigInteger('id_menu')->unsigned();
-            $table->string('variant_img');
             $table->string('desc_variant');
 
             $table->foreign('id_menu')->references('id_menu')->on('menu');

@@ -75,7 +75,13 @@ class ManajemenMenuController extends Controller
         // ]);
 
         if($request){
-            Menu::create($request->all());
+            Menu::create([
+                'menu_category' => $request->menu_category,
+                'menu_name' => $request->menu_name,
+                'desc_menu' => $request->desc_menu,
+                'price_menu' => $request->price_menu,
+                'menu_img' => 'image-menu.jpg',
+            ]);
             return redirect('/admin/manajemen-menu');
         }else{
             dd("tidak tervalidasi");
@@ -87,7 +93,6 @@ class ManajemenMenuController extends Controller
             Variant::create([
                 'variant_name' => $request->variant_name,
                 'id_menu' => Session::get('id_menu'),
-                'variant_img' => 'image_1.jpg',
                 'desc_variant' => $request->desc_variant,
             ]);
             return redirect('/admin/manajemen-menu/' . Session::get('id_menu') . '/' . Session::get('id_variant'));
