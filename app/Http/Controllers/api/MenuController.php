@@ -16,16 +16,10 @@ class MenuController extends Controller
             $limit = $request->query('limit');
 
             if ($limit) {
-                $menus = Menu::with('variants')->limit($limit)->get();
+                $menus = Menu::limit($limit)->get();
             } else {
-                $menus = Menu::with('variants')->get();
+                $menus = Menu::get();
             }
-
-            $menus = $menus->map(function ($menu) {
-                $menu->variant_img = $menu->variants->isNotEmpty() ? $menu->variants->first()->variant_img : null;
-                unset($menu->variants); // Hapus varian dari respons jika tidak diperlukan
-                return $menu;
-            });
 
             return response()->json(['data' => $menus]);
         } catch (\Exception $e) {
