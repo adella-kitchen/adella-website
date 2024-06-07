@@ -6,9 +6,15 @@ use App\Http\Controllers\admin\ManajemenBahanController;
 use App\Http\Controllers\admin\ManajemenKontenController;
 use App\Http\Controllers\admin\ManajemenMenuController;
 use App\Http\Controllers\admin\PesananController;
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\CheckAdminRole;
 use Illuminate\Support\Facades\Route;
+
+// ------ auth google ------
+Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('/auth/google/callback', [GoogleAuthController::class, 'callbackGoogle']);
+
 
 Route::redirect('/', '/admin/dashboard');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -23,7 +29,7 @@ Route::get('/api-testing/{id}', [DashboardController::class, 'apiTesting']);
 
 Route::middleware('auth')->group(function () {
     Route::middleware(CheckAdminRole::class)->prefix('admin')->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/manajemen-bahan', [ManajemenBahanController::class, 'index']);
         // Route::get('/manajemen-bahan/{id}', ManajemenDetailBahan::class);
 

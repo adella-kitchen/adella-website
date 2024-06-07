@@ -20,7 +20,6 @@ class ManajemenMenuController extends Controller
         // test
         $menu = Menu::with('variants.detailVariants')->get();
         // dd($menu);
-        return response()->json($menu);
 
         $daftar_menu = Menu::all();
         return view('admin.pages.manajemen-menu',[
