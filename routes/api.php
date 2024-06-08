@@ -29,12 +29,11 @@ Route::prefix('menu')->group(function () {
 
 // ---- CART API ----
 Route::prefix('cart')->group(function () {
-    Route::get('/', [CartAPIController::class, 'index'])->middleware('auth:sanctum');
-    Route::post('/add-cart', [CartAPIController::class, 'addCart'])->middleware('auth:sanctum');
-    Route::get('/plus-cart/{id}', [CartAPIController::class, 'plusQtyMenu'])->middleware('auth:sanctum');
-    Route::get('/minus-cart/{id}', [CartAPIController::class, 'minusQtyMenu'])->middleware('auth:sanctum');
-    Route::get('/delete-cart/{id}', [CartAPIController::class, 'deleteMenuCart'])->middleware('auth:sanctum');
+    Route::get('/{id}', [CartAPIController::class, 'index'])->middleware('auth:sanctum');
+    Route::post('/add-cart', [CartAPIController::class, 'addCart']);
+    Route::put('/update-qty', [CartAPIController::class, 'updateQtyMenu'])->middleware('auth:sanctum');
+    Route::delete('/delete/{id}', [CartAPIController::class, 'deleteMenuCart'])->middleware('auth:sanctum');
 });
 
 // ---- ORDER API ----
-Route::post('/order/add-order', [OrderAPIController::class, 'addOrder'])->middleware('auth:sanctum');
+Route::post('/order/add-order', [OrderAPIController::class, 'addOrder']);
