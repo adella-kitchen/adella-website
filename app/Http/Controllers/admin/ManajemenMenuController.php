@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\DetailVariant;
 use App\Models\Menu;
 use App\Models\Variant;
-use Illuminate\Contracts\Session\Session as SessionSession;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -73,13 +72,17 @@ class ManajemenMenuController extends Controller
         //     'price_menu' => ['required'],
         // ]);
 
+        $file = $request->file('menu_img');
+        $imageName = time() . '.' . $file->extension();
+        $file->move(public_path('img/manajemen_menu'), $imageName);
+
         if($request){
             Menu::create([
                 'menu_category' => $request->menu_category,
                 'menu_name' => $request->menu_name,
                 'desc_menu' => $request->desc_menu,
                 'price_menu' => $request->price_menu,
-                'menu_img' => 'image-menu.jpg',
+                'menu_img' => $imageName,
             ]);
             return redirect('/admin/manajemen-menu');
         }else{
@@ -112,5 +115,4 @@ class ManajemenMenuController extends Controller
             dd("tidak tervalidasi");
         }
     }
-
 }
