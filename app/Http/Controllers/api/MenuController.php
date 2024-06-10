@@ -15,11 +15,13 @@ class MenuController extends Controller
         try {
             $limit = $request->query('limit');
 
+            $query = Menu::query();
+
             if ($limit) {
-                $menus = Menu::limit($limit)->get();
-            } else {
-                $menus = Menu::get();
+                $query->limit($limit);
             }
+
+            $menus = $query->inRandomOrder()->get();
 
             return response()->json(['data' => $menus]);
         } catch (\Exception $e) {
