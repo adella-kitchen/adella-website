@@ -10,7 +10,10 @@ class ContentPromo extends Model
     use HasFactory;
     public $timestamps = false;
     protected $fillable = [
+        'image',
         'judul_promo',
+        // 'date_start',
+        // 'date_end',
         'deskripsi_promo',
     ];
     protected $primaryKey = 'id_promo';

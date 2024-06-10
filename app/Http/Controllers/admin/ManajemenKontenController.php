@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\ContentPromo;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Storage;
 
 class ManajemenKontenController extends Controller
 {
@@ -25,17 +26,19 @@ class ManajemenKontenController extends Controller
     {
 
         $ValidateData = $request->validate([
+            'image' => 'image|file|max:2024',
             'judul_promo' => 'required',
+            // 'date_start' => 'required',
+            // 'date_end' => 'required',
             'deskripsi_promo' => 'required',
 
         ]);
-        if ($request->file('gambar_promo')) {
-            $ValidateData['gambar_promo'] = $request->file('gambar_promo')->store('images', 'public');
+        if ($request->file('image')) {
+            $ValidateData['image'] = $request->file('image')->store('image-promo', 'public');
         }
-
-
-
         ContentPromo::create([
+
+            'image' => $ValidateData['image'],
             'judul_promo' => $ValidateData['judul_promo'],
             'deskripsi_promo' => $ValidateData['deskripsi_promo'],
 

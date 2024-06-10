@@ -30,7 +30,7 @@ class AuthController extends Controller
         return $user->createToken('user login')->plainTextToken;
     }
 
-    public function logout(Request $request)
+        public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
         return response()->json(['message' => 'Berhsil Logout'], 200);
