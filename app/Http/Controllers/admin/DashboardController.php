@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Menu;
 use Illuminate\Http\Request;
@@ -15,10 +16,10 @@ class DashboardController extends Controller
     }
 
     public function apiTesting($id){
-        // $cart = Menu::with('carts')->get();
-        // return response()->json($cart);
-
-        $cart = Cart::with('detailCart.detailVariant.variant.menuCart')->where('id_users', $id)->get();
+        $cart = Address::with('user')->where('id_address', $id)->get();
         return response()->json($cart);
+
+        // $cart = Cart::with('detailCart.detailVariant.variant.menuCart')->where('id_users', $id)->get();
+        // return response()->json($cart);
     }
 }
