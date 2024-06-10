@@ -8,6 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <title>@yield('title')</title>
 
 </head>
@@ -30,6 +31,7 @@
     <script src="/js/datatable.js"></script>
     <script src="/js/karyawan/karyawan.js"></script>
     <script src="/js/menu/menu.js"></script>
+    <script src="/js/order/order.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 

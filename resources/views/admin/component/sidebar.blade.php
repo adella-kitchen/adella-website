@@ -50,7 +50,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="{{ url('/admin/manajemen-bahan') }}"
                         class="flex items-center p-3 {{ $title == 'Manajemen Bahan' ? 'bg-red2 text-red' : 'text-gray-900 hover:bg-gray-100' }} rounded-lg dark:text-white dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 {{ $title == 'Manajemen Bahan' ? ' text-red' : 'text-gray-500  group-hover:text-gray-900' }} transition duration-75 dark:text-gray-400 dark:group-hover:text-white"
@@ -62,7 +62,7 @@
                         <span class="flex-1 ms-3 whitespace-nowrap">Manajemen Bahan</span>
 
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="{{ url('/admin/manajemen-menu') }}"
                         class="flex items-center p-3 {{ $title == 'Manajemen Menu' ? 'bg-red2 text-red' : 'text-gray-900 hover:bg-gray-100' }} rounded-lg dark:text-white  dark:hover:bg-gray-700 group">

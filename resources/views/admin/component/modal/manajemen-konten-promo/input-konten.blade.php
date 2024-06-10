@@ -17,7 +17,7 @@
                     <span class="sr-only">Close modal</span>
                 </button>
             </div>
-            <form method="POST" action="{{ route('promo.store') }}" enctype="multipart/form-data" class="p-4 md:p-5">
+            <form method="POST" action="{{ route('addPromo') }}" enctype="multipart/form-data" class="p-4 md:p-5">
                 @csrf
                 <div class="flex items-center justify-center w-full mb-3">
 

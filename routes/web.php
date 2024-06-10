@@ -6,9 +6,15 @@ use App\Http\Controllers\admin\ManajemenBahanController;
 use App\Http\Controllers\admin\ManajemenKontenController;
 use App\Http\Controllers\admin\ManajemenMenuController;
 use App\Http\Controllers\admin\PesananController;
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\CheckAdminRole;
 use Illuminate\Support\Facades\Route;
+
+// ------ auth google ------
+Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('/auth/google/callback', [GoogleAuthController::class, 'callbackGoogle']);
+
 
 Route::redirect('/', '/admin/dashboard');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -18,15 +24,27 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/add-user', [LoginController::class, 'addUser']);
 
+//testing API
+Route::get('/api-testing/{id}', [DashboardController::class, 'apiTesting']);
+
 Route::middleware('auth')->group(function () {
     Route::middleware(CheckAdminRole::class)->prefix('admin')->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/manajemen-bahan', [ManajemenBahanController::class, 'index']);
         // Route::get('/manajemen-bahan/{id}', ManajemenDetailBahan::class);
-        Route::get('/manajemen-menu', [ManajemenMenuController::class, 'index']);
-        Route::get('/manajemen-menu/{id}', [ManajemenMenuController::class, 'detailMenu']);
+
         // Route::post('/manajemen-menu/tambahmenu', [MenuController::class, 'addMenu']);
-        Route::get('/pesanan', [PesananController::class, 'index']);
+        Route::get('/pesanan', [PesananController::class,'index']);
+
+        // ---- route manajemen menu ----
+        Route::prefix('manajemen-menu')->group(function () {
+            Route::get('/', [ManajemenMenuController::class, 'index']);
+            Route::get('/{id}', [ManajemenMenuController::class, 'detailMenu']);
+            Route::get('/{id}/{id_variant}', [ManajemenMenuController::class, 'variantOptionShow']);
+            Route::post('/add-menu', [ManajemenMenuController::class, 'addMenu'])->name('addMenu');
+            Route::post('/add-variant', [ManajemenMenuController::class, 'addVariant'])->name('addVariant');
+            Route::post('/add-option-variant', [ManajemenMenuController::class, 'addOptionVariant'])->name('addOptionVariant');
+        });
 
         // ---- route manajemen konten ----
         Route::prefix('manajemen-konten')->group(function () {

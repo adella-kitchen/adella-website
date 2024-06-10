@@ -12,4 +12,14 @@ class Cart extends Model
     protected $primaryKey = 'id_cart';
     protected $table = 'cart';
     public $timestamps = false;
+
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'id_users', 'id');
+    // }
+
+    public function detailCart()
+    {
+        return $this->hasMany(DetailCart::class, 'id_cart', 'id_cart');
+    }
 }

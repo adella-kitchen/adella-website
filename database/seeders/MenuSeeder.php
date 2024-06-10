@@ -15,30 +15,32 @@ class MenuSeeder extends Seeder
     {
         DB::table('menu')->insert([
             [
-                'menu_category' => 'makanan',
-                'menu_name' => 'Nasi Goreng',
-                'desc_menu' => 'Nasi goreng spesial dengan bumbu tradisional',
+                'menu_category' => 'paket',
+                'menu_name' => 'Paket Mie Ayam Udang',
+                'desc_menu' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+                'price_menu' => 10000,
+                'menu_img' => 'menu1.png',
+            ],
+            [
+                'menu_category' => 'paket',
+                'menu_name' => 'Paket Roti Buah',
+                'desc_menu' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
                 'price_menu' => 15000,
+                'menu_img' => 'menu2.jpg',
             ],
             [
-                'menu_category' => 'makanan',
-                'menu_name' => 'Ayam Bakar',
-                'desc_menu' => 'Ayam bakar dengan sambal pedas',
-                'price_menu' => 20000,
-            ],
-            [
-                'menu_category' => 'makanan',
-                'menu_name' => 'Bakso Goreng',
-                'desc_menu' => 'Bakso Goreng dengan sambal pedas',
-                'price_menu' => 28000,
+                'menu_category' => 'paket',
+                'menu_name' => 'Paket Pizza Hut',
+                'desc_menu' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+                'price_menu' => 12000,
+                'menu_img' => 'menu5.jpg',
             ],
         ]);
 
         for ($i = 1; $i <= 10; $i++) {
             $variantId = DB::table('variant')->insertGetId([
                 'variant_name' => 'Variant ' . $i,
-                'id_menu' => rand(1, 2),
-                'variant_img' => 'image_' . $i . '.jpg',
+                'id_menu' => rand(1, 3),
                 'desc_variant' => 'Description of variant ' . $i,
             ]);
 
