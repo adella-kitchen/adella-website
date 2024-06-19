@@ -19,6 +19,9 @@
             </div>
             <form method="POST" action="{{ route('addPromo') }}" enctype="multipart/form-data" class="p-4 md:p-5">
                 @csrf
+                @error('image')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
                 <div class="flex items-center justify-center w-full mb-3">
 
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image"

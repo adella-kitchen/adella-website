@@ -12,8 +12,8 @@ class ContentPromo extends Model
     protected $fillable = [
         'image',
         'judul_promo',
-        // 'date_start',
-        // 'date_end',
+        'tgl_mulai',
+        'tgl_selesai',
         'deskripsi_promo',
     ];
     protected $primaryKey = 'id_promo';

@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
         // Route::get('/manajemen-bahan/{id}', ManajemenDetailBahan::class);
 
         // Route::post('/manajemen-menu/tambahmenu', [MenuController::class, 'addMenu']);
-        Route::get('/pesanan', [PesananController::class,'index']);
+        Route::get('/pesanan', [PesananController::class, 'index']);
 
         // ---- route manajemen menu ----
         Route::prefix('manajemen-menu')->group(function () {
@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
         Route::prefix('manajemen-konten')->group(function () {
             Route::get('/', [ManajemenKontenController::class, 'index'])->name('promo.index');
             Route::get('/promo/create', [ManajemenKontenController::class, 'create'])->name('promo.create');
-            Route::post('/promo/store', [ManajemenKontenController::class, 'store'])->name('promo.store');
+            Route::post('/addPromo', [ManajemenKontenController::class, 'addPromo'])->name('addPromo');
             Route::get('/promo/delete/{id_promo}', [ManajemenKontenController::class, 'destroy'])->name('promo.delete');
         });
 

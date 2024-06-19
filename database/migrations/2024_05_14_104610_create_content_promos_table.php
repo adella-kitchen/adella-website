@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id('id_promo');
             $table->string('image')->nullable();
             $table->string('judul_promo');
-            $table->date('date_start')->nullable();
-            $table->date('date_end')->nullable();
+            $table->date('tgl_mulai')->nullable();
+            $table->date('tgl_selesai')->nullable();
             $table->text('deskripsi_promo');
             $table->timestamps();
         });

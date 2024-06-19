@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContentPromo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Storage;
 
@@ -22,28 +23,40 @@ class ManajemenKontenController extends Controller
         return view('admin.pages.manajemen-konten');
     }
 
-    public function store(Request $request)
+    public function addPromo(Request $request)
     {
-
-        $ValidateData = $request->validate([
-            'image' => 'image|file|max:2024',
+        // Validasi data input
+        $validatedData = $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg|max:2024',
             'judul_promo' => 'required',
-            // 'date_start' => 'required',
-            // 'date_end' => 'required',
+            'tgl_mulai' => 'required|date',
+            'tgl_selesai' => 'required|date|after_or_equal:tgl_mulai',
             'deskripsi_promo' => 'required',
-
         ]);
-        if ($request->file('image')) {
-            $ValidateData['image'] = $request->file('image')->store('image-promo', 'public');
+
+        // Cek apakah validasi gagal (tidak diperlukan, karena validasi sudah dijalankan sebelumnya)
+
+        // Simpan gambar jika ada
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('image-promo', 'public');
         }
+
+        // Buat entri baru dalam database
         ContentPromo::create([
-
-            'image' => $ValidateData['image'],
-            'judul_promo' => $ValidateData['judul_promo'],
-            'deskripsi_promo' => $ValidateData['deskripsi_promo'],
-
+            'image' => $imagePath,
+            'judul_promo' => $validatedData['judul_promo'],
+            'tgl_mulai' => $validatedData['tgl_mulai'],
+            'tgl_selesai' => $validatedData['tgl_selesai'],
+            'deskripsi_promo' => $validatedData['deskripsi_promo'],
         ]);
-        return redirect()->route('promo.index');
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('promo.index')->with('success', 'Promo berhasil ditambahkan!');
+    }
+
+    public function removeExpiredPromo(){
+        ContentPromo ::where('tgl_selesai','<',Carbon::now())->delete();
     }
 
     public function show(ContentPromo $promo)

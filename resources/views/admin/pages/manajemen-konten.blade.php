@@ -23,7 +23,7 @@
                                             @if ($promo->image)
                                                 <img src="{{ asset('storage/' . $promo->image) }}" alt="">
                                             @else
-                                                <img src="{{ asset('img/manajemen-konten/menu1.png') }}" alt="">
+                                                <img src="{{ asset('img/promo/promo1.jpg') }}" alt="">
                                             @endif
                                         </div>
                                     </div>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="w-3/4 flex flex-col justify-between">
                                 <div class=" mb-4 flex items-center">
-                                    <input class="border border-[2px] mr-4 border-grey4 p-4 w-full rounded-lg text-left"
+                                    <input class="border mr-4 border-grey4 p-4 w-full rounded-lg text-left"
                                         value="{{ $promo->judul_promo }}" readonly>
 
                                     <div date-rangepicker class="flex items-center">
@@ -47,7 +47,7 @@
                                             </div>
                                             <input type="date" name="date_start"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                placeholder="Mulai" value="{{ $promo->date_start }}" readonly>
+                                                placeholder="Mulai" value="{{ $promo->tgl_mulai }}" readonly>
                                         </div>
                                         <span class="mx-4 text-gray-500">to</span>
                                         <div class="relative">
@@ -62,11 +62,11 @@
                                             </div>
                                             <input name="date_end" type="date"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                placeholder="Selesai" value="{{ $promo->date_end }}" readonly>
+                                                placeholder="Selesai" value="{{ $promo->tgl_selesai }}" readonly>
                                         </div>
                                     </div>
                                 </div>
-                                <textarea class="border border-[2px] border-grey4 p-4 w-full h-full rounded-lg text-left" readonly>{{ $promo->deskripsi_promo }}</textarea>
+                                <textarea class="border border-grey4 p-4 w-full h-full rounded-lg text-left" readonly>{{ $promo->deskripsi_promo }}</textarea>
                             </div>
                         </div>
                         <div class="mt-5 flex justify-between items-center">
@@ -78,7 +78,7 @@
                                         viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
                                         <path
                                             d=" M5 21h14a2 2 0 0 0 2-2V8l-5-5H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zM7
-                                                                                                                                        5h4v2h2V5h2v4H7V5zm0 8h10v6H7v-6z">
+                                                                                                                                                            5h4v2h2V5h2v4H7V5zm0 8h10v6H7v-6z">
                                         </path>
                                     </svg>
                                     <a class="ml-2" href="">Simpan</a>
@@ -103,3 +103,17 @@
     </section>
     @include('admin.component.modal.manajemen-konten-promo.input-konten')
 @endsection
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script>
+    // Cek apakah terdapat pesan sukses yang diterima dari redirect
+    @if (session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: '{{ session('success') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+</script>
