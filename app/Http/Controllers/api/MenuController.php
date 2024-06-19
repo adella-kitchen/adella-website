@@ -15,11 +15,13 @@ class MenuController extends Controller
         try {
             $limit = $request->query('limit');
 
+            $query = Menu::query();
+
             if ($limit) {
-                $menus = Menu::limit($limit)->get();
-            } else {
-                $menus = Menu::get();
+                $query->limit($limit);
             }
+
+            $menus = $query->inRandomOrder()->get();
 
             return response()->json(['data' => $menus]);
         } catch (\Exception $e) {
@@ -33,7 +35,7 @@ class MenuController extends Controller
     { //get by id
         try {
             $menu = Menu::with('variants.detailVariants')->findOrFail($id);
-            return response()->json($menu);
+            return response()->json(['data' => $menu]);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return response()->json(['message' => 'Menu tidak ditemukan'], 404);
         }

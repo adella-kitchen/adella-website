@@ -56,7 +56,7 @@ class AuthController extends Controller
     public function getUser($id)
     {
         try {
-            $user = User::findOrFail($id);
+            $user = User::with('address')->where('id', $id)->first();
             return response()->json(['data' => $user]);
         } catch (\Exception $e) {
             return response()->json(['message' => 'User tidak ditemukan'], 404);
