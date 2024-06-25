@@ -6,13 +6,27 @@ use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Menu;
+use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardController extends Controller
 {
     public function index(){
-        return view('admin.pages.dashboard');
+        $total_pendapatan = Order::all()->sum('order_total');
+        $jumlah_pesanan = Order::count();
+        $total_menu = Menu::count();
+        $total_karyawan = User::where('role', 'admin')->count();
+        $pesanan_terbaru =  Order::join('users', 'order.id_users', '=', 'users.id')->get();
+
+        return view('admin.pages.dashboard',[
+            'total_pendapatan' => $total_pendapatan,
+            'jumlah_pesanan' => $jumlah_pesanan,
+            'total_menu' => $total_menu,
+            'total_karyawan' => $total_karyawan,
+            'pesanan_terbaru' => $pesanan_terbaru
+        ]);
     }
 
     public function apiTesting($id){
