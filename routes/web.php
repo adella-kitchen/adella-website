@@ -50,6 +50,8 @@ Route::middleware('auth')->group(function () {
         Route::prefix('manajemen-konten')->group(function () {
             Route::get('/', [ManajemenKontenController::class, 'index']);
             Route::post('/addPromo', [ManajemenKontenController::class, 'addPromo'])->name('addPromo');
+            Route::get('/delete-konten/{id}', [ManajemenKontenController::class, 'deleteKonten']);
+            Route::post('/update-konten/{id}', [ManajemenKontenController::class, 'updateKonten']);
         });
 
         // ---- route karyawan ----
