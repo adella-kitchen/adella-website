@@ -20,7 +20,7 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->with('address')->first();
 
         if (!$user) {
             return response()->json([
@@ -43,6 +43,9 @@ class AuthController extends Controller
                 'id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
+                'address' => [
+                    'id_alamat' => $user->alamat->id ?? null,
+                ]
             ]
         ]);
     }
@@ -80,5 +83,32 @@ class AuthController extends Controller
         ]);
 
         return response()->json(['message' => 'User registered successfully']);
+    }
+
+    public function checkUserData(Request $request)
+    {
+        $user = $request->user();
+
+        $fieldsToCheck = [
+            'no_telp',
+            'jenis_kelamin',
+            'tanggal_lahir',
+            'tempat_lahir',
+            'address'
+        ];
+
+        foreach ($fieldsToCheck as $field) {
+            if (is_null($user->$field)) {
+                return response()->json([
+                    'message' => 'Data tidak lengkap',
+                    'data' => $user
+                ]);
+            }
+        }
+
+        return response()->json([
+            'message' => 'Data lengkap',
+            'data' => $user
+        ]);
     }
 }
