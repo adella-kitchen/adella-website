@@ -10,10 +10,12 @@
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <title>@yield('title')</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 
 </head>
 @php
-    $title = 'Dashboard';
+$title = 'Dashboard';
 @endphp
 
 <body class="grid grid-cols-[300px,1fr]">
@@ -32,7 +34,7 @@
     <script src="/js/karyawan/karyawan.js"></script>
     <script src="/js/menu/menu.js"></script>
     <script src="/js/order/order.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 
 </html>

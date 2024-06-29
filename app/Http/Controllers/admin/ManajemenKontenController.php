@@ -25,68 +25,44 @@ class ManajemenKontenController extends Controller
 
     public function addPromo(Request $request)
     {
-        // Validasi data input
-        $validatedData = $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg|max:2024',
-            'judul_promo' => 'required',
-            'tgl_mulai' => 'required|date',
-            'tgl_selesai' => 'required|date|after_or_equal:tgl_mulai',
-            'deskripsi_promo' => 'required',
+        $file = $request->file('promo_img');
+        $imageName = time() . '.' . $file->extension();
+        $file->move(public_path('img/manajemen_konten'), $imageName);
+
+        $mulai_promo = $request->mulai_promo ? date('Y-m-d', strtotime($request->mulai_promo)) : null;
+        $selesai_promo = $request->selesai_promo ? date('Y-m-d', strtotime($request->selesai_promo)) : null;
+
+        $promo = ContentPromo::create([
+            'judul_promo' => $request->judul_promo,
+            'deskripsi_promo' => $request->deskripsi_promo,
+            'gambar_konten' => $imageName,
+            'mulai_promo' => $mulai_promo,
+            'selesai_promo' => $selesai_promo,
         ]);
-
-        // Cek apakah validasi gagal (tidak diperlukan, karena validasi sudah dijalankan sebelumnya)
-
-        // Simpan gambar jika ada
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('image-promo', 'public');
+        if ($promo) {
+            return redirect('/admin/manajemen-konten');
+        } else {
+            dd('gagal di tambahkan');
         }
+    }
 
-        // Buat entri baru dalam database
-        ContentPromo::create([
-            'image' => $imagePath,
-            'judul_promo' => $validatedData['judul_promo'],
-            'tgl_mulai' => $validatedData['tgl_mulai'],
-            'tgl_selesai' => $validatedData['tgl_selesai'],
-            'deskripsi_promo' => $validatedData['deskripsi_promo'],
+    public function deleteKonten($id){
+        $delete = ContentPromo::where('id_promo', $id)->delete();
+        if ($delete) {
+            return redirect('/admin/manajemen-konten');
+        } else {
+            dd('gagal di hapus');
+        }
+    }
+
+    public function updateKonten(Request $request, $id){
+        $update = ContentPromo::where('id_promo', $id)->first();
+        $update->update([
+            'judul_promo' => $request->judul_promo_card,
+            'deskripsi_promo' => $request->deskripsi_promo_card,
+            'mulai_promo' => $request->mulai_promo_card ? date('Y-m-d', strtotime($request->mulai_promo_card)) : null,
+            'selesai_promo' => $request->selesai_promo_card ? date('Y-m-d', strtotime($request->selesai_promo_card)) : null,
         ]);
-
-        // Redirect dengan pesan sukses
-        return redirect()->route('promo.index')->with('success', 'Promo berhasil ditambahkan!');
-    }
-
-    public function removeExpiredPromo(){
-        ContentPromo ::where('tgl_selesai','<',Carbon::now())->delete();
-    }
-
-    public function show(ContentPromo $promo)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ContentPromo $promo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ContentPromo $promo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        $hapus_promo = ContentPromo::findOrFail($id);
-        $hapus_promo->delete();
-        return redirect()->route('promo.index');
+        return redirect('/admin/manajemen-konten');
     }
 }

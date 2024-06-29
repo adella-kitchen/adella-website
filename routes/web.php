@@ -51,7 +51,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [ManajemenKontenController::class, 'index'])->name('promo.index');
             Route::get('/promo/create', [ManajemenKontenController::class, 'create'])->name('promo.create');
             Route::post('/addPromo', [ManajemenKontenController::class, 'addPromo'])->name('addPromo');
-            Route::get('/promo/delete/{id_promo}', [ManajemenKontenController::class, 'destroy'])->name('promo.delete');
+            Route::get('/delete-konten/{id}', [ManajemenKontenController::class, 'deleteKonten']);
+            Route::post('/update-konten/{id}', [ManajemenKontenController::class, 'updateKonten']);
         });
 
         // ---- route karyawan ----

@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('content_promo', function (Blueprint $table) {
             $table->id('id_promo');
-            $table->string('image')->nullable();
+            $table->string('gambar_konten')->nullable();
             $table->string('judul_promo');
-            $table->date('tgl_mulai')->nullable();
-            $table->date('tgl_selesai')->nullable();
-            $table->text('deskripsi_promo');
-            $table->timestamps();
+            $table->string('deskripsi_promo');
+            $table->date('mulai_promo');
+            $table->date('selesai_promo');
         });
     }
 
