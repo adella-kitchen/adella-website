@@ -24,7 +24,8 @@
             <a href="">Our Promo</a>
             <a href="">Our Product</a>
         </ul>
-        <a href="" class="text-black px-10 py-2 bg-white rounded-full"><i class="ri-logout-box-r-line "></i>Login</a>
+        <a href="/login" class="text-black px-10 py-2 bg-white rounded-full"><i
+                class="ri-logout-box-r-line "></i>Login</a>
     </nav>
     <section id="hero-section" class="w-full h-[90dvh] flex flex-col justify-center items-center"
         style="background-image: url('/img/landing/background.png')">
@@ -109,7 +110,7 @@
         <div class="pt-[50px] flex gap-8 w-[1200px] flex-wrap justify-center">
             <!-- Card 1 -->
             <div class="w-[250px] bg-white shadow-md border">
-                <img src="/img/landing/menu/produk.png" alt="">
+                <img src="/img/landing/menu/produk.png" alt="" class="w-[300px] h-[180px] ">
                 <div class="px-4 py-2">
                     <p class="text-black1 font-bold text-[18px]">Bali Egg Special</p>
                     <p class="text-[14px] text-justify">Telur khas Bali dengan bumbu rempah pilihan, disajikan dengan
@@ -121,7 +122,7 @@
             </div>
             <!-- Card 2 -->
             <div class="w-[250px] bg-white shadow-md border">
-                <img src="/img/landing/menu/produk.png" alt="">
+                <img src="/img/landing/menu/produk2.jpg" alt="" class="w-[300px] h-[180px] ">
                 <div class="px-4 py-2">
                     <p class="text-black1 font-bold text-[18px]">Rendang Daging Sapi</p>
                     <p class="text-[14px] text-justify">Rendang daging sapi dengan bumbu khas Padang yang kaya akan
@@ -133,7 +134,7 @@
             </div>
             <!-- Card 3 -->
             <div class="w-[250px] bg-white shadow-md border">
-                <img src="/img/landing/menu/produk.png" alt="">
+                <img src="/img/landing/menu/produk3.jpg" alt="" class="w-[300px] h-[180px] ">
                 <div class="px-4 py-2">
                     <p class="text-black1 font-bold text-[18px]">Ayam Betutu</p>
                     <p class="text-[14px] text-justify">Ayam Betutu khas Bali dengan bumbu meresap hingga ke dalam
@@ -145,7 +146,7 @@
             </div>
             <!-- Card 4 -->
             <div class="w-[250px] bg-white shadow-md border">
-                <img src="/img/landing/menu/produk.png" alt="">
+                <img src="/img/landing/menu/produk4.jpg" alt="" class="w-[300px] h-[180px] ">
                 <div class="px-4 py-2">
                     <p class="text-black1 font-bold text-[18px]">Sate Lilit</p>
                     <p class="text-[14px] text-justify">Sate lilit dengan daging ikan segar dan bumbu khas Bali yang
