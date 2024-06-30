@@ -15,7 +15,7 @@
 
 </head>
 @php
-$title = 'Dashboard';
+$title = 'Adela Kitchen';
 @endphp
 
 <body class="grid grid-cols-[300px,1fr]">

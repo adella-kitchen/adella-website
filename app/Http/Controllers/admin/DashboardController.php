@@ -18,7 +18,11 @@ class DashboardController extends Controller
         $jumlah_pesanan = Order::count();
         $total_menu = Menu::count();
         $total_karyawan = User::where('role', 'admin')->count();
-        $pesanan_terbaru =  Order::join('users', 'order.id_users', '=', 'users.id')->get();
+        $pesanan_terbaru = Order::join('users', 'order.id_users', '=', 'users.id')
+                                ->join('order_detail', 'order.id_order', '=', 'order_detail.id_order')
+                                ->join('menu', 'order_detail.id_menu', '=', 'menu.id_menu')
+                                ->get();
+
         $daftar_karyawan = User::where('role', 'admin')->get();
 
         return view('admin.pages.dashboard',[

@@ -132,9 +132,9 @@
             <div class="px-6">
                 @foreach ($pesanan_terbaru as $pesanan)
                 <div class="card-pesanan-terbaru flex gap-4 py-3">
-                    <img src="/img/manajemen_menu/menu1.jpg" alt="" class="w-[50px] h-[50px] bg-cover">
+                    <img src="/img/manajemen_menu/{{ $pesanan->menu_img }}" alt="" class="w-[50px] h-[50px] bg-cover">
                     <div class="flex flex-col justify-center">
-                        <p class="font-bold text-[18px]">Mie Gacoan lvl 2</p>
+                        <p class="font-bold text-[18px]">{{ $pesanan->menu_name }}</p>
                         <P>Dipesan oleh {{ $pesanan->name }}</P>
                     </div>
                 </div>

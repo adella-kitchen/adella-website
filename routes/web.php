@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ManajemenMenuController;
 use App\Http\Controllers\admin\PesananController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MainController;
 use App\Http\Middleware\CheckAdminRole;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])->name('goo
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callbackGoogle']);
 
 
+Route::get('/landing-page', [MainController::class, 'index']);
 Route::redirect('/', '/admin/dashboard');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate']);
