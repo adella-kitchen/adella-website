@@ -72,59 +72,92 @@
     </section>
 
     <section id="why-us-section" class="bg-[#F9F9F9] flex flex-col justify-center items-center py-[100px] px-[100px]">
-        <h1 class="text-red text-[20px] font-[700]">Why Choose US</h1>
+        <h1 class="text-red text-[20px] font-[700]">Why Choose Us</h1>
         <h3 class="text-black1 text-[30px] font-semibold">“Dengan resep terbaik untuk makanan favoritmu”</h3>
         <div class="flex gap-32 mt-[100px]">
             <div class="text-center flex flex-col justify-center">
                 <div class="h-[180px] flex items-center justify-center">
                     <img src="/img/landing/why-section/1.png" alt="">
                 </div>
-                <h3 class="text-black1 font-bold text-[18px]">Our Best Menu</h3>
-                <p class="w-[200px] text-center font-thin">Lorem Ipsum is simply dummy text of the printing and
-                    typesetting
-                    industry</p>
+                <h3 class="text-black1 font-bold text-[18px]">Pengiriman Cepat</h3>
+                <p class="w-[200px] text-center font-thin">Kami menjamin pengiriman cepat sehingga makanan Anda tiba
+                    dalam kondisi terbaik.</p>
             </div>
             <div class="text-center flex flex-col justify-center">
                 <div class="h-[180px] flex items-center justify-center">
                     <img src="/img/landing/why-section/2.png" alt="">
                 </div>
-                <h3 class="text-black1 font-bold text-[18px]">Our Best Menu</h3>
-                <p class="w-[200px] text-center font-thin">Lorem Ipsum is simply dummy text of the printing and
-                    typesetting
-                    industry</p>
+                <h3 class="text-black1 font-bold text-[18px]">Bahan yang Fresh</h3>
+                <p class="w-[200px] text-center font-thin">Kami hanya menggunakan bahan-bahan segar dan berkualitas
+                    tinggi untuk setiap hidangan.</p>
             </div>
             <div class="text-center flex flex-col justify-center">
                 <div class="h-[180px] flex items-center justify-center">
                     <img src="/img/landing/why-section/3.png" alt="">
                 </div>
-                <h3 class="text-black1 font-bold text-[18px]">Our Best Menu</h3>
-                <p class="w-[200px] text-center font-thin">Lorem Ipsum is simply dummy text of the printing and
-                    typesetting
-                    industry</p>
+                <h3 class="text-black1 font-bold text-[18px]">Makanan Lezat</h3>
+                <p class="w-[200px] text-center font-thin">Kami menyajikan makanan lezat yang akan memanjakan lidah Anda
+                    setiap saat.</p>
             </div>
         </div>
     </section>
+
     <section id="best-menu-section" class="flex flex-col justify-center items-center py-[100px]">
         <img src="/img/landing/menu/daun.png" alt="">
         <h1 class="text-red text-[20px] font-[700] mt-2">Our Best Menu</h1>
-        <p class="font-regular">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+        <p class="font-regular">Kami menawarkan berbagai menu terbaik yang pastinya akan menggugah selera Anda</p>
         <div class="pt-[50px] flex gap-8 w-[1200px] flex-wrap justify-center">
-            @for ($i = 0; $i < 8; $i++) <div class="w-[250px] bg-white shadow-md border">
+            <!-- Card 1 -->
+            <div class="w-[250px] bg-white shadow-md border">
                 <img src="/img/landing/menu/produk.png" alt="">
                 <div class="px-4 py-2">
                     <p class="text-black1 font-bold text-[18px]">Bali Egg Special</p>
-                    <p class="text-[14px] text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry.
-                        Lorem Ipsum is simply
-                        dummy text of the printing and typesetting industry.</p>
+                    <p class="text-[14px] text-justify">Telur khas Bali dengan bumbu rempah pilihan, disajikan dengan
+                        nasi hangat.</p>
                     <p class="text-semibold text-[18px] font-bold">Rp. 25.000</p>
                     <a href="" class="text-white text-center text-[14px] bg-red w-full py-2 block mt-2">Pesan
                         Sekarang</a>
                 </div>
-        </div>
-        @endfor
+            </div>
+            <!-- Card 2 -->
+            <div class="w-[250px] bg-white shadow-md border">
+                <img src="/img/landing/menu/produk.png" alt="">
+                <div class="px-4 py-2">
+                    <p class="text-black1 font-bold text-[18px]">Rendang Daging Sapi</p>
+                    <p class="text-[14px] text-justify">Rendang daging sapi dengan bumbu khas Padang yang kaya akan
+                        rempah.</p>
+                    <p class="text-semibold text-[18px] font-bold">Rp. 45.000</p>
+                    <a href="" class="text-white text-center text-[14px] bg-red w-full py-2 block mt-2">Pesan
+                        Sekarang</a>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="w-[250px] bg-white shadow-md border">
+                <img src="/img/landing/menu/produk.png" alt="">
+                <div class="px-4 py-2">
+                    <p class="text-black1 font-bold text-[18px]">Ayam Betutu</p>
+                    <p class="text-[14px] text-justify">Ayam Betutu khas Bali dengan bumbu meresap hingga ke dalam
+                        daging.</p>
+                    <p class="text-semibold text-[18px] font-bold">Rp. 35.000</p>
+                    <a href="" class="text-white text-center text-[14px] bg-red w-full py-2 block mt-2">Pesan
+                        Sekarang</a>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="w-[250px] bg-white shadow-md border">
+                <img src="/img/landing/menu/produk.png" alt="">
+                <div class="px-4 py-2">
+                    <p class="text-black1 font-bold text-[18px]">Sate Lilit</p>
+                    <p class="text-[14px] text-justify">Sate lilit dengan daging ikan segar dan bumbu khas Bali yang
+                        lezat.</p>
+                    <p class="text-semibold text-[18px] font-bold">Rp. 30.000</p>
+                    <a href="" class="text-white text-center text-[14px] bg-red w-full py-2 block mt-2">Pesan
+                        Sekarang</a>
+                </div>
+            </div>
         </div>
     </section>
+
     <section id="discount-section" class="pb-[50px]">
         <div class="flex flex-col justify-center items-center py-[10px]">
             <img src="/img/landing/menu/adela-produk.png" alt="" class="w-[1100px]">
